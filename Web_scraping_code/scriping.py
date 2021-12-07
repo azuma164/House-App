@@ -11,7 +11,7 @@ material = []
 height = []
 room_num = []
 
-for ind in range(10):
+for ind in range(2141):
   url = ''
   if ind == 0:
     url = 'https://db.self-in.com/prefecture/13.html'
