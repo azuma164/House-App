@@ -12,11 +12,12 @@ height = []
 room_num = []
 
 for ind in range(10):
+  url = ''
   if ind == 0:
     url = 'https://db.self-in.com/prefecture/13.html'
   else:
     url = 'https://db.self-in.com/prefecture/13_{}.html'
-    url.format(ind+1)
+    url = url.format(ind+1)
 
   #データ取得
   result = requests.get(url)
