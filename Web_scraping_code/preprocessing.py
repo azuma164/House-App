@@ -1,12 +1,19 @@
 import pandas as pd
 import regex
 
-df = pd.read_csv('suumo_adachi.csv', sep = '\t',encoding='utf-16')
+df = pd.read_csv('suumo_adachi.csv',encoding='utf-16')
 
 p = regex.compile(r'[\p{Script=Katakana}ー]+')
-#print(p.fullmatch(df['マンション名'].str))
-# <regex.Match object; span=(0, 10), match='あーいアイウabc🈀'>
-for i in range(256):
-    print(i)
-    print(p.findall(df['マンション名'][i]))
-    
+df['kana'] = ""
+dict = {}
+for i in range(len(df)):
+    kana_list = p.findall(df['name'][i])
+    for kana in kana_list:
+        if kana in dict.keys():
+            dict[kana] += 1
+        else:
+            dict[kana] = 1
+    #df['kana'][i].extend(kana_list)
+    if len(kana_list) > 0:
+        df['kana'][i] = kana_list[0]
+print(sorted(dict.items(), key=lambda x: x[1]))
