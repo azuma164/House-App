@@ -5,7 +5,7 @@ https://www.insee.fr/fr/statistiques/2540004
 #### how to build:
 
 ```
-npm install
+npm install --save --legacy-peer-deps
 npm run build
 ```
 

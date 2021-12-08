@@ -48,7 +48,7 @@
 <template lang="pug">
 .popup(:class="[position]", :style="{opacity: show ? 1 : 0}")
   .year {{year}}
-  .forename(v-for="forenameData in forenames")
+  .forename(v-for="forenameData in change_rank(forenames)")
     div
       .circle(:style="{ backgroundColor: forenameColor(forenameData) }")
       | {{forenameData.forenameUnique}}
@@ -72,7 +72,19 @@ export default {
         return `${count} naissance${count === 1 ? '' : 's'}`
       }
     },
-    forenameColor
+    forenameColor, 
+    change_rank(names){
+      return names.sort((a, b) => {
+        if ((a.births[this.year-a.births[0].year] == undefined ? 
+        0: a.births[this.year-a.births[0].year].births)
+         < (b.births[this.year-b.births[0].year] == undefined ? 
+        0: b.births[this.year-b.births[0].year].births)){
+          return 1;
+        }else{
+          return -1;
+        }
+      })
+    }
   }
 }
 

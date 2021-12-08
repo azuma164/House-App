@@ -140,8 +140,8 @@ ul.forenames-list
   content
     .left-side
       .title
-        h2 De 1945 à 2015 :
-        h1 70 ans de prénoms en France
+        h2 1945 ~ 2015 :
+        h1 フランスにおける70年間の名前の変遷
       form.search
         input(type="text" autocomplete="off" placeholder="Recherche..." v-model="searchQuery")
         img.search-image(src="./images/search.png")
@@ -220,6 +220,7 @@ export default {
     selectedForenames (forenames) {
       window.location.hash = forenames.map(d => d.id + '-' + (d.sex === 'm' ? 'h' : 'f')).join(',')
       this.shareUrl = window.location.toString()
+      console.log('watch!')
     }
   },
 

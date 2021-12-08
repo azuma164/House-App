@@ -40,17 +40,13 @@ var color = d3.scaleLinear()
  .domain([500, 14000])
  .range([255,0]);
 
-d3.tsv('./suumo_adachi.csv', function(error, data){
-  var arrData = [];
-  console.log(data);
-})
 
 
  // ここでスクレイピングでデータを取得
  d3.csv("./suumo_adachi.csv").then(function(data){
+     console.log(data)
      data.forEach(function(d){
          residence[d['マンション名']] = d['マンション名'];
-         console.log(d);
      });
  })
 
@@ -58,7 +54,6 @@ d3.tsv('./suumo_adachi.csv', function(error, data){
 
  function showMap(){
     d3.json("./tokyo.topojson").then(function(data){
-        console.log(data.objects.tokyo)
         var tokyo = topojson.feature(data, data.objects.tokyo);
 
         var projection = d3.geoMercator()
