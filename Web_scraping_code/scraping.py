@@ -82,4 +82,4 @@ suumo_df = pd.concat([name, address, year, material, height, room_num], axis=1)
 suumo_df.columns=['name','address','year','material','height','room_num']
 
 # #csvファイルとして保存
-suumo_df.to_csv('suumo_tokyo.csv', sep = ',',encoding='utf-16')
+suumo_df.to_csv('suumo_tokyo.csv', sep = ',',encoding='utf-8')

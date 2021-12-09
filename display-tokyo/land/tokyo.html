@@ -43,12 +43,10 @@ var color = d3.scaleLinear()
 
 
  // ここでスクレイピングでデータを取得
- d3.csv("./suumo_adachi.csv").then(function(data){
-     console.log(data)
-     data.forEach(function(d){
-         residence[d['マンション名']] = d['マンション名'];
-     });
- })
+
+d3.csv('./suumo_tokyo.csv', function(data){
+    console.log(data)
+})
 
  var tooltip = d3.select("body").append("div").attr("class", "tooltip")
 
