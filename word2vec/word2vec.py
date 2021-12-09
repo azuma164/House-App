@@ -40,6 +40,15 @@ pca.fit(dfs)
 
 feature = pca.transform(dfs)
 
+x_axis = feature[:, 0]
+y_axis = feature[:, 1]
+x_axis = Series(x_axis)
+y_axis = Series(y_axis)
+
+df2 = pd.concat([df["name"], x_axis, y_axis], axis=1)
+df2.to_csv("PCA_word2vec.csv")
+
+
 plt.figure(figsize=(6, 6))
 plt.scatter(feature[:, 0], feature[:, 1], alpha = 0.8)
 plt.grid()
