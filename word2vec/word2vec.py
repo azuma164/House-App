@@ -1,6 +1,8 @@
 # coding:utf-8
 import fasttext
 import fasttext.util
+from mds import MDS
+from tsne import T_SNE
 
 import numpy as np
 import pandas as pd
@@ -41,22 +43,28 @@ df.to_csv("word2vec_300dim.csv")
 dfs = df.iloc[:, 1:].apply(lambda x: (x-x.mean())/x.std(), axis=0)
 
 pca = PCA()
-pca.fit(dfs)
+# pca.fit(dfs)
 
-feature = pca.transform(dfs)
+# feature = pca.transform(dfs)
 
-x_axis = feature[:, 0]
-y_axis = feature[:, 1]
-x_axis = Series(x_axis)
-y_axis = Series(y_axis)
+# x_axis = feature[:, 0]
+# y_axis = feature[:, 1]
+# x_axis = Series(x_axis)
+# y_axis = Series(y_axis)
 
-df2 = pd.concat([df["name"], x_axis, y_axis], axis=1)
-df2.to_csv("PCA_word2vec.csv")
+# df2 = pd.concat([df["name"], x_axis, y_axis], axis=1)
+# df2.to_csv("PCA_word2vec.csv")
 
 
-plt.figure(figsize=(6, 6))
-plt.scatter(feature[:, 0], feature[:, 1], alpha = 0.8)
-plt.grid()
-plt.xlabel("PC1")
-plt.ylabel("PC2")
-plt.show()
+# plt.figure(figsize=(6, 6))
+# plt.scatter(feature[:, 0], feature[:, 1], alpha = 0.8)
+# plt.grid()
+# plt.xlabel("PC1")
+# plt.ylabel("PC2")
+# plt.show()
+
+# mds_ins = MDS(dfs)
+# mds_ins.execute()
+
+tsne_ins = T_SNE(dfs)
+tsne_ins.execute()
