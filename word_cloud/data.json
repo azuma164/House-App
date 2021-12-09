@@ -1,0 +1,33 @@
+[
+    {"word":"Maison","count":9,"language":"French"},
+    {"word":"Casa","count":3,"language":"Italian"},
+    {"word":"Soleil","count":4,"language":"French"},
+    {"word":"Sun","count":20,"language":"English"},
+    {"word":"Heim","count":2,"language":"German"},
+    {"word":"Residence","count":5,"language":"English"},
+    {"word":"Coop.","count":5,"language":"English"},
+     {"word":"Maisons","count":9,"language":"French"},
+    {"word":"Casas","count":3,"language":"Italian"},
+    {"word":"Soleils","count":4,"language":"French"},
+    {"word":"Suns","count":8,"language":"English"},
+    {"word":"Heims","count":2,"language":"German"},
+    {"word":"Residences","count":5,"language":"English"},
+    {"word":"Coops.","count":5,"language":"English"},
+    {"word":"Maison","count":9,"language":"French"},
+    {"word":"Casa","count":3,"language":"Italian"},
+    {"word":"Soleil","count":4,"language":"French"},
+    {"word":"Sun","count":20,"language":"English"},
+    {"word":"Heim","count":2,"language":"German"},
+    {"word":"Residence","count":5,"language":"English"},
+    {"word":"Coop.","count":5,"language":"English"},
+     {"word":"Maisons","count":9,"language":"French"},
+    {"word":"Casas","count":3,"language":"Italian"},
+    {"word":"Soleils","count":4,"language":"French"},
+    {"word":"Suns","count":8,"language":"English"},
+    {"word":"Heims","count":2,"language":"German"},
+    {"word":"Residences","count":5,"language":"English"},
+    {"word":"Coops.","count":5,"language":"English"}
+
+
+
+]
