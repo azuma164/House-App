@@ -31,6 +31,7 @@ column = ["name"]
 for i in range(ft.get_dimension()):
   column.append(str(i))
 df.columns = column
+df.to_csv("word2vec_300dim.csv")
 
 # 行列の正規化
 dfs = df.iloc[:, 1:].apply(lambda x: (x-x.mean())/x.std(), axis=0)
