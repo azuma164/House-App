@@ -1,7 +1,7 @@
 import pandas as pd
 import regex
 
-df = pd.read_csv('suumo_adachi.csv',encoding='utf-16')
+df = pd.read_csv('suumo_tokyo.csv',encoding='utf-16')
 
 p = regex.compile(r'[\p{Script=Katakana}ー]+')
 df['kana'] = ""
