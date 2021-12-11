@@ -2,111 +2,16 @@
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
+        <link rel="stylesheet" href="btn_tip.css">
         <title>D3 Test</title>
         <script src="./d3.js" charset="utf-8"></script>
         <script src="./topojson.js" charset="utf-8"></script>
-        <style>
-            .tooltip {
-                position: absolute;
-                text-align: center;
-                width: auto;
-                height: auto;
-                padding: 5px;
-                font: 12px;
-                background: white;
-                -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-                -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-                visibility: hidden;
-              }
-              .bar:hover {
-                fill: Brown;
-              }
-              .btn{
-                position: absolute;
-                top: 10px;
-                left: 200px;
-                text-align: center;
-              }
-        </style>
+        <script src="./all_languages.js" charset="utf-8"></script>
     </head>
 <body>
 <script type="text/javascript">
 
-var width = 1500;
-var height = 800;
-var residence = {};
-
-var svg = d3.select("body").append("svg")
- .attr("width", width)
- .attr("height", height);
-
-var color = d3.scaleLinear()
- .domain([500, 14000])
- .range([255,0]);
-
-var en_array = {}
-
-// ここでスクレイピングでデータを取得
-d3.csv('./test.csv').then(function(data){
-    data.forEach(function(d){
-        en_array[d['場所']] = d['英語'];
-    })
-    showMap();
-})
-
- var tooltip = d3.select("body").append("div").attr("class", "tooltip")
-
- var div_btn = d3.select("body").append("div").attr("class", "btn")
-
- var button_en = div_btn.append("button").attr("onclick", "location.href='furnitureproduction.html'")
- var button_fr = div_btn.append("button").attr("onclick", "location.href='foodproduction.html'")
- var button_sp = div_btn.append("button").attr("onclick", "location.href='clothingproduction.html'")
-
- button_en.html("英語");
- button_fr.html("フランス語");
- button_sp.html("スペイン語");
-
- function showMap(){
-     console.log(en_array)
-    d3.json("./tokyo.topojson").then(function(data){
-        var tokyo = topojson.feature(data, data.objects.tokyo);
-
-        var projection = d3.geoMercator()
-                            .center([139.5, 35.7])
-                            .translate([width/2, height/2])
-                            .scale(45000)
-        var path = d3.geoPath().projection(projection);
-
-        var pref = svg.selectAll("path")
-            .data(tokyo.features)
-            .enter()
-            .append("path")
-            .attr("d", path)
-            .attr("fill", function(d){ 
-                console.log(d)
-                return "rgb(255," +
-                Math.floor(color(en_array[d.properties.ward_ja]))+ ", " +
-                Math.floor(color(en_array[d.properties.ward_ja])) + ")"}) 
-            .attr("stroke", "#333333")
-            .attr("stroke-width", 0.5);
-
-        pref
-        .on("mouseover", function(m, d){
-            tooltip
-                .style("visibility", "visible")
-                .html("市区町村: "+d.properties.ward_ja+"<br>建物数: "+en_array[d.properties.ward_ja])
-        })
-        .on("mousemove", function(d){
-            tooltip
-                .style("top", 0+ "px")
-                .style("left", 0 + "px")
-        })
-        .on("mouseout", function(d){
-            tooltip.style("visibility", "hidden");
-        })
-    })
- }
+all_languages('英語')
 
 </script>
 </body></html>
