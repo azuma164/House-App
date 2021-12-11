@@ -22,39 +22,39 @@ buiding_and_language = []
 for bill in buiding:
   # 後で書き込むようの配列を作っておく
   # 最初はそれぞれの建物名に全ての言語が含まれていないとする
-  row = [bill[1], bill[2]] + [False]*10
+  row = [bill[1], bill[2]] + [0]*10
   for mean in meaning:
     if mean[0] in bill[1]: # 建物名にキーワードが含まれているか
       # 英語
       if mean[1] == 'en':
-        row[2] = True
+        row[2] = 1
       # フランス語
       if mean[1] == 'fr':
-        row[3] = True
+        row[3] = 1
       # スペイン語
       if mean[1] == 'es':
-        row[4] = True
+        row[4] = 1
       # ドイツ語
       if mean[1] == 'de' or mean[1] == 'ge':
-        row[5] = True
+        row[5] = 1
       # イタリア語
       if mean[1] == 'ru' or mean[1] == 'it':
-        row[6] = True
+        row[6] = 1
       # ラテン語
       if mean[1] == 'la':
-        row[7] = True
+        row[7] = 1
       # ギリシャ語
       if mean[1] == 'el':
-        row[8] = True
+        row[8] = 1
       # ロシア語
       if mean[1] == 'ru':
-        row[9] = True
+        row[9] = 1
       # ポルトガル語
       if mean[1] == 'pt':
-        row[10] = True
+        row[10] = 1
       # 日本語
       if mean[1] == 'ja':
-        row[11] = True
+        row[11] = 1
   # 建物ごとに言語booleanの配列を作り、全体としては二次元配列にする
   buiding_and_language.append(row)
 
