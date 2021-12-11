@@ -38,7 +38,7 @@ for bill in buiding:
       if mean[1] == 'de' or mean[1] == 'ge':
         row[5] = True
       # イタリア語
-      if mean[1] == 'ru':
+      if mean[1] == 'ru' or mean[1] == 'it':
         row[6] = True
       # ラテン語
       if mean[1] == 'la':
