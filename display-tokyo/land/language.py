@@ -64,7 +64,7 @@ for bill in buiding:
 with open('./language_boolean.csv', 'w') as f:
   writer = csv.writer(f)
   # csvのヘッダーの書き込み
-  writer.writerow(['建物名', '場所', '英語','フランス語','スペイン語','ドイツ語','イタリア語','ラテン語','ギリシャ語','ロシア語','ボルトガル語','日本語'])
+  writer.writerow(['name', 'address', 'en','fr','sp','ge','it','la','gr','ru','po','ja'])
   writer.writerows(buiding_and_language)
 
 df = pd.read_csv("language_boolean.csv", encoding="utf-8")

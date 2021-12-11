@@ -16,7 +16,7 @@ function all_languages(lang){
   // ここでスクレイピングでデータを取得
   d3.csv('./test.csv').then(function(data){
       data.forEach(function(d){
-          en_array[d['場所']] = d[lang];
+          en_array[d['city']] = d[lang];
       })
       showMap();
   })
