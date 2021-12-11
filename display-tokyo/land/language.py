@@ -1,5 +1,6 @@
 import csv
 from os import write
+import pandas as pd
 
 # 名前の意味情報を読み取る
 with open('./meaning.csv') as f:
@@ -65,3 +66,8 @@ with open('./language_boolean.csv', 'w') as f:
   # csvのヘッダーの書き込み
   writer.writerow(['建物名', '場所', '英語','フランス語','スペイン語','ドイツ語','イタリア語','ラテン語','ギリシャ語','ロシア語','ボルトガル語','日本語'])
   writer.writerows(buiding_and_language)
+
+df = pd.read_csv("language_boolean.csv", encoding="utf-8")
+city_df = pd.read_csv("city_suumo_tokyo.csv", encoding="utf=8")
+df["city"] = city_df["city"]
+df.to_csv("language_boolean.csv", encoding="utf-8")
