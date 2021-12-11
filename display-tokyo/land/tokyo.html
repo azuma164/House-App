@@ -28,7 +28,7 @@
 <body>
 <script type="text/javascript">
 
-var width = 800;
+var width = 1500;
 var height = 800;
 var residence = {};
 
@@ -40,12 +40,15 @@ var color = d3.scaleLinear()
  .domain([500, 14000])
  .range([255,0]);
 
+var id_array = {}
 
-
- // ここでスクレイピングでデータを取得
-
-d3.csv('./suumo_tokyo.csv', function(data){
-    console.log(data)
+// ここでスクレイピングでデータを取得
+d3.csv('./suumo_tokyo.csv').then(function(data){
+    data.forEach(function(d){
+        id_array[d.address] = d.id;
+    })
+    console.log(id_array);
+    showMap();
 })
 
  var tooltip = d3.select("body").append("div").attr("class", "tooltip")
@@ -55,9 +58,9 @@ d3.csv('./suumo_tokyo.csv', function(data){
         var tokyo = topojson.feature(data, data.objects.tokyo);
 
         var projection = d3.geoMercator()
-                            .center([137, 34])
+                            .center([139.5, 35.7])
                             .translate([width/2, height/2])
-                            .scale(1500)
+                            .scale(45000)
         var path = d3.geoPath().projection(projection);
 
         var pref = svg.selectAll("path")
@@ -66,8 +69,8 @@ d3.csv('./suumo_tokyo.csv', function(data){
             .append("path")
             .attr("d", path)
             .attr("fill", function(d){ return "rgb(255," +
-                Math.floor(color(populationHash[d.properties.nam_ja]))+ ", " +
-                Math.floor(color(populationHash[d.properties.nam_ja])) + ")"}) 
+                Math.floor(color(id_array[d.address]))+ ", " +
+                Math.floor(color(id_array[d.address])) + ")"}) 
             .attr("stroke", "#333333")
             .attr("stroke-width", 0.5);
 
@@ -75,7 +78,7 @@ d3.csv('./suumo_tokyo.csv', function(data){
         .on("mouseover", function(m, d){
             tooltip
                 .style("visibility", "visible")
-                .html("prefecture: "+d.properties.nam_ja+"<br>population: "+populationHash[d.properties.nam_ja])
+                .html("prefecture: "+d.properties.nam_ja+"<br>population: "+id_array[d.address])
         })
         .on("mousemove", function(d){
             tooltip
