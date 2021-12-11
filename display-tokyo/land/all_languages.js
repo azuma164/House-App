@@ -25,13 +25,29 @@ function all_languages(lang){
 
   var div_btn = d3.select("body").append("div").attr("class", "btn")
 
-  var button_en = div_btn.append("button").attr("onclick", "location.href='furnitureproduction.html'")
-  var button_fr = div_btn.append("button").attr("onclick", "location.href='foodproduction.html'")
-  var button_sp = div_btn.append("button").attr("onclick", "location.href='clothingproduction.html'")
+  var button_en = div_btn.append("button").attr("onclick", "location.href='tokyo_en.html'")
+  var button_fr = div_btn.append("button").attr("onclick", "location.href='tokyo_fr.html'")
+  var button_sp = div_btn.append("button").attr("onclick", "location.href='tokyo_sp.html'")
+  var button_ge = div_btn.append("button").attr("onclick", "location.href='tokyo_ge.html'")
+  var button_it = div_btn.append("button").attr("onclick", "location.href='tokyo_it.html'")
+  var button_la = div_btn.append("button").attr("onclick", "location.href='tokyo_la.html'")
+  var button_gr = div_btn.append("button").attr("onclick", "location.href='tokyo_gr.html'")
+  var button_ru = div_btn.append("button").attr("onclick", "location.href='tokyo_ru.html'")
+  var button_po = div_btn.append("button").attr("onclick", "location.href='tokyo_po.html'")
+  var button_ja = div_btn.append("button").attr("onclick", "location.href='tokyo_ja.html'")
+  
 
   button_en.html("英語");
   button_fr.html("フランス語");
   button_sp.html("スペイン語");
+  button_ge.html("ドイツ語");
+  button_it.html("イタリア語");
+  button_la.html("ラテン語");
+  button_gr.html("ギリシャ語");
+  button_ru.html("ロシア語");
+  button_po.html("ポルトガル語");
+  button_ja.html("日本語");
+  
 
   function showMap(){
       console.log(en_array)
