@@ -7,19 +7,60 @@ function all_languages(lang){
   .attr("width", width)
   .attr("height", height);
 
-  var color = d3.scaleLinear()
-  .domain([500, 14000])
-  .range([255,0]);
+  var title = '';
+  switch(lang){
+    case 'en':
+      title = '英語'
+      break
+    case 'fr':
+      title = 'フランス語'
+      break
+    case 'sp':
+      title = 'スペイン語'
+      break
+    case 'ge':
+      title = 'ドイツ語'
+      break
+    case 'it':
+      title = 'イタリア語'
+      break
+    case 'la':
+      title = 'ラテン語'
+      break
+    case 'gr':
+      title = 'ギリシャ語'
+      break
+    case 'ru':
+      title = 'ロシア語'
+      break
+    case 'po':
+      title = 'ポルトガル語'
+      break
+    case 'ja':
+      title = '日本語'
+      break
+    default:
+      title = ''             
+  }
 
-  var en_array = {}
+  d3.select("body").append("h2").html(title).attr("class", "title_lang")
 
+  var lang_array = {}
+
+  var max_num_city = 0
   // ここでスクレイピングでデータを取得
-  d3.csv('./test.csv').then(function(data){
+  d3.csv('./city_language.csv').then(function(data){
       data.forEach(function(d){
-          en_array[d['city']] = d[lang];
+          lang_array[d['city']] = d[lang];
+          if (Number(d[lang]) > Number(max_num_city)){
+            max_num_city = Number(d[lang])
+            // console.log(max_num_city)
+          }
       })
+      console.log(max_num_city)
       showMap();
   })
+  console.log(max_num_city)
 
   var tooltip = d3.select("body").append("div").attr("class", "tooltip")
 
@@ -50,7 +91,10 @@ function all_languages(lang){
   
 
   function showMap(){
-      console.log(en_array)
+      var color = d3.scaleLinear()
+      .domain([0, max_num_city])
+      .range([255,0]);
+
       d3.json("./tokyo.topojson").then(function(data){
           var tokyo = topojson.feature(data, data.objects.tokyo);
 
@@ -65,11 +109,10 @@ function all_languages(lang){
               .enter()
               .append("path")
               .attr("d", path)
-              .attr("fill", function(d){ 
-                  console.log(d)
+              .attr("fill", function(d){
                   return "rgb(255," +
-                  Math.floor(color(en_array[d.properties.ward_ja]))+ ", " +
-                  Math.floor(color(en_array[d.properties.ward_ja])) + ")"}) 
+                  Math.floor(color(lang_array[d.properties.ward_ja]))+ ", " +
+                  Math.floor(color(lang_array[d.properties.ward_ja])) + ")"}) 
               .attr("stroke", "#333333")
               .attr("stroke-width", 0.5);
 
@@ -77,7 +120,7 @@ function all_languages(lang){
           .on("mouseover", function(m, d){
               tooltip
                   .style("visibility", "visible")
-                  .html("市区町村: "+d.properties.ward_ja+"<br>建物数: "+en_array[d.properties.ward_ja])
+                  .html("市区町村: "+d.properties.ward_ja+"<br>建物数: "+lang_array[d.properties.ward_ja])
           })
           .on("mousemove", function(d){
               tooltip

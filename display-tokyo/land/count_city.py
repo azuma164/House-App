@@ -42,3 +42,7 @@ with open('./city_language.csv', 'w') as f:
   # csvのヘッダーの書き込み
   writer.writerow(['city', 'en','fr','sp','ge','it','la','gr','ru','po','ja'])
   writer.writerows(list)
+  # マンションが存在しない地域の書き込み
+  writer.writerow(['檜原村',0,0,0,0,0,0,0,0,0,0])
+  writer.writerow(['日の出町',0,0,0,0,0,0,0,0,0,0])
+  writer.writerow(['所属未定地',0,0,0,0,0,0,0,0,0,0])

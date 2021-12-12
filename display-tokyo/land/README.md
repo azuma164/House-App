@@ -1,4 +1,11 @@
 # Data of Japan
+## How to run
+```bash
+python3 extract_ward.py
+python3 language.py
+python3 count_city.py
+```
+
 ## 行政区分
 
 * resions.csv

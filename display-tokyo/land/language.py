@@ -59,8 +59,6 @@ for bill in buiding:
   # 建物ごとに言語booleanの配列を作り、全体としては二次元配列にする
   buiding_and_language.append(row)
 
-# print(buiding_and_language)
-
 with open('./language_boolean.csv', 'w') as f:
   writer = csv.writer(f)
   # csvのヘッダーの書き込み
