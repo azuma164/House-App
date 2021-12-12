@@ -9,7 +9,7 @@
 
 <style>
     #cloud {
-        background-image: url(uk.png);
+        /* background-image: url(uk.png); */
         /* background-color: "light-grey"; */
     }
 </style>
@@ -69,6 +69,7 @@
                 var words_original = words.map(function (d) {
                     return {
                         text: d.spelling,
+                        kana: d.kana_word,
                         size: sizeScale(d.count), //頻出カウントを文字サイズに反映
                         lang_font: fonts[languages.indexOf(d.language)],
                         lang_color: colorScale(d.language),
@@ -126,6 +127,33 @@
                                 .fontSize(function (d) { return d.size; })
                                 .on("end", draw) //描画関数の読み込み
                                 .start();
+                        })
+                        .on("mouseover", function (d, i) {
+                            const mouse_over_text = i;
+                            const highlight_language = i.lang;
+                            // 他の国を薄くする。
+                            d3.select("body").select("svg").selectAll("text").each(function (d, i) {
+                                if (d.lang != highlight_language) {
+                                    d3.select(this).style("fill", "lightgrey");
+                                } else {
+                                    // 日本語に反転する
+                                    // d3.select(this).text(function (d) { return d.kana })
+                                    // d3.select(this).style("font-size", Number(d3.select(this).style("font-size").replace("px")) / 3)
+                                }
+                            })
+
+                            // 背景の変更
+                            d3.select("#cloud").style("background-image", "url(" + highlight_language + ".png)");
+
+                        })
+                        .on("mouseout", function (d, i) {
+                            // 色を戻す
+                            d3.select("body").select("svg").selectAll("text").each(function (d) {
+                                d3.select(this).style("fill", function (d, i) { return d.lang_color })
+                            })
+
+                            d3.select("#cloud").style("background-image", null);
+
                         });
 
                     d3.select("svg").on("click", function (d) {
