@@ -7,6 +7,13 @@
     <style type="text/css"></style>
 </head>
 
+<style>
+    #cloud {
+        /* background-image: url(uk.png); */
+        background-color:"light-grey";
+    }
+</style>
+
 <body>
     <header></header>
     <DIV id="cloud"></DIV>
@@ -16,10 +23,11 @@
     <script type="text/javascript">
         var DATA_FILE_PATH = 'data.json'; // 読み込みデータファイル
         var TARGET_ELEMENT_ID = '#cloud'; // 描画先
-        languages = ["English","French","Italian","German"];
-        fonts = ["Impact","Arial","sans-serif","Serif"]
+        languages = ["English", "French", "Italian", "German"];
+        fonts = ["Helvetica", "serif", "sans-serif", "Impact"]
 
         var fontScale = d3.scaleOrdinal().domain(languages).range(fonts);
+        var colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeCategory10)
 
         d3.json(DATA_FILE_PATH).then(function (data) { // v5
             var h = 490;
@@ -29,18 +37,19 @@
             var countMax = d3.max(data, function (d) { return d.count });
             var sizeScale = d3.scaleLinear().domain([0, countMax]).range([10, 100])
 
-            var words = data.map(function (d) {
+            var words_original = data.map(function (d) {
                 return {
                     text: d.word,
                     size: sizeScale(d.count), //頻出カウントを文字サイズに反映
-                    lang_font: fonts[languages.indexOf(d.language)]
+                    lang_font: fonts[languages.indexOf(d.language)],
+                    lang_color: colorScale(d.language),
+                    lang: d.language
                 };
             });
 
-            console.log(words)
 
             d3.layout.cloud().size([w, h])
-                .words(words)
+                .words(words_original)
                 .rotate(0)
                 // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
                 // .font("Impact")
@@ -48,9 +57,13 @@
                 .on("end", draw) //描画関数の読み込み
                 .start();
 
+            d3.select("body").selectAll("p").html("jjjjj")
 
             // wordcloud 描画
             function draw(words) {
+
+
+
                 d3.select(TARGET_ELEMENT_ID)
                     .append("svg")
                     .attr("class", "ui fluid image") // style using semantic ui
@@ -63,13 +76,77 @@
                     .data(words)
                     .enter().append("text")
                     .style("font-size", function (d) { return d.size + "px"; })
-                    .style("font-family", function(d){return d.lang_font})
-                    .style("fill", function (d, i) { return d3.schemeCategory10[i % 10]; })
+                    .style("font-family", function (d) { return d.lang_font })
+                    .style("fill", function (d, i) { return d.lang_color })
+                    .style("background-image", "url(" + "uk.png" + ")")
+                    .style("-webkit-background-clip", "text")
                     .attr("text-anchor", "middle")
                     .attr("transform", function (d) {
                         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
                     })
-                    .text(function (d) { return d.text; });
+                    .text(function (d) { return d.text; })
+                    .attr("id", "name")
+                    .on("click", function (d, i) {
+                        d.stopPropagation();
+                        words_clipped = words.filter(name => name.lang == i.lang);
+                        d3.selectAll("svg").remove();
+                        d3.layout.cloud().size([w, h])
+                            .words(words_clipped)
+                            // .rotate(0)
+                            .rotate(function(){return Math.random()>0.5 ? 0 :90})
+                            // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
+                            // .font("Impact")
+                            .fontSize(function (d) { return d.size; })
+                            .on("end", draw) //描画関数の読み込み
+                            .start();
+                    });
+
+                d3.select("svg").on("click", function (d) {
+                    d3.selectAll("svg").remove();
+                    d3.layout.cloud().size([w, h])
+                        .words(words_original)
+                        .rotate(function(){return Math.random()>0.5 ? 0 :90})
+                        // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
+                        // .font("Impact")
+                        .fontSize(function (d) { return d.size; })
+                        .on("end", draw) //描画関数の読み込み
+                        .start();
+                })
+
+                var lang_name = d3.select("body").select("svg").selectAll("lang_name")
+                
+                   
+                console.log(lang_name)
+
+ 
+
+
+
+
+
+
+
+                // d3.select("g").append('clipPath')
+                //     .attr('id', 'clip')
+                //     .append('use')
+                //     .attr('xlink:href', '#name');
+                // var images = d3.select("svg")
+                //     .append('image')
+                //     .attr('xlink:href', 'uk.png')
+                //     .attr('width', 200)
+                //     .attr('height', 200)
+                //     .attr('clip-path', 'url(#clip)')
+                //     .attr('x', 100)
+                //     .attr('y', 100);
+
+                var circle = d3.select(TARGET_ELEMENT_ID).selectAll("svg").selectAll("circle").append("circle");
+                circle
+                    .attr("r", 400)
+                    .attr("cx", 600)
+                    .attr("cy", 300)
+                    .attr("stroke", "black")
+                    .attr("fill", "black");
+                console.log(circle)
             }
 
         });
