@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/language.css">
+
+    <script src="js/d3.js" charset="utf-8"></script>
+    <script src="js/topojson.js" charset="utf-8"></script>
+    <script src="js/heat_map.js" charset="utf-8"></script>
+    <script src="js/word_cloud.js" charset="utf-8"></script>
+    <script src="js/d3.layout.cloud.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+
+    <title>言語で見る</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">建物名で見る物件</a>
+        </h1>
+        <nav class="pc-nav">
+            <ul>
+                <li><a href="#">言語</a></li>
+                <li><a href="#">意味</a></li>
+                <li><a href="#">時代</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="cloud"></div>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+        word_cloud();
+    </script>
+</body>
+
+</html>

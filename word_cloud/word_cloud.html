@@ -116,6 +116,7 @@
                         .attr("id", "name")
                         .on("click", function (d, i) {
                             d.stopPropagation();
+                            window.location.href = "../display-tokyo/land/tokyo_" + i.lang + ".html"
                             words_clipped = words.filter(name => name.lang == i.lang);
                             d3.selectAll("svg").remove();
                             d3.layout.cloud().size([w, h])
