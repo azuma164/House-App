@@ -50,12 +50,17 @@ function heat_map(lang) {
 
     var max_num_city = 0
         // ここでスクレイピングでデータを取得
+
     d3.csv('data/city_language.csv').then(function(data) {
         data.forEach(function(d) {
-            lang_array[d['city']] = d[lang];
-            if (Number(d[lang]) > Number(max_num_city)) {
-                max_num_city = Number(d[lang])
-                    // console.log(max_num_city)
+            sum_lang = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
+            if (sum_lang != 0) {
+                lang_array[d['city']] = Number(d[lang]) / sum_lang;
+            } else {
+                lang_array[d['city']] = 0;
+            }
+            if (lang_array[d['city']] > Number(max_num_city)) {
+                max_num_city = lang_array[d['city']]
             }
         })
         showMap();
@@ -72,9 +77,9 @@ function heat_map(lang) {
             var tokyo = topojson.feature(data, data.objects.tokyo);
 
             var projection = d3.geoMercator()
-                .center([139.5, 35.7])
+                .center([139.7, 35.7])
                 .translate([width / 2, height / 2])
-                .scale(45000)
+                .scale(60000)
             var path = d3.geoPath().projection(projection);
 
             var pref = svg.selectAll("path")
@@ -83,11 +88,15 @@ function heat_map(lang) {
                 .append("path")
                 .attr("d", path)
                 .attr("fill", function(d) {
-                    return "rgb(255," +
-                        Math.floor(color(lang_array[d.properties.ward_ja])) + ", " +
-                        Math.floor(color(lang_array[d.properties.ward_ja])) + ")"
+                    if (d.properties.area_ja != "都区部") {
+                        return "rgb(230,230,230)";
+                    } else {
+                        return "rgb(255," +
+                            Math.floor(color(lang_array[d.properties.ward_ja])) + ", " +
+                            Math.floor(color(lang_array[d.properties.ward_ja])) + ")"
+                    }
                 })
-                .attr("stroke", "#333333")
+                .attr("stroke", "rgb(230,230,230)")
                 .attr("stroke-width", 0.5);
 
             pref
