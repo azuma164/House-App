@@ -140,10 +140,10 @@ ul.forenames-list
   content
     .left-side
       .title
-        h2 1945 ~ 2015 :
-        h1 フランスにおける70年間の名前の変遷
+        h2 1950 ~ 2021 :
+        h1 東京における72年間における名称ごとの物件数の変化
       form.search
-        input(type="text" autocomplete="off" placeholder="Recherche..." v-model="searchQuery")
+        input(type="text" autocomplete="off" placeholder="Research..." v-model="searchQuery")
         img.search-image(src="./images/search.png")
         a.clear(href="#" v-show="searchQuery.length" @click="searchQuery = ''")
           img(src="./images/clear.png")/
@@ -162,18 +162,18 @@ ul.forenames-list
         @forename:remove="toggleForename",
         @year-range="setYearRange"
       )
-      .bottom
-        .block
-          .share-url
-            div Partagez ces résultats avec ce lien :
-            input(ref="share-url" type="text" @click="selectUrl", :value="shareUrl")
-          .social-links
-            iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdataaddict.fr%2Fprenoms%2F&layout=button_count&size=large&mobile_iframe=true&appId=388906134841894&width=120&height=28" width="120" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true")
-            a.twitter-share-button(href="https://twitter.com/share" data-size="large" data-via="_Data_Addict_" data-lang="fr" data-hashtags="70ansdeprénoms")
-            a.github-button(href="https://github.com/dataaddict/prenoms" data-style="mega" aria-label="Star dataaddict/prenoms on GitHub") Star
-        .explanations
-          | Les prénoms sélectionnés sont les plus courants en France, ils ont été donnés au moins 2000 fois entre 1945 et 2015. Source :
-          a(href="https://www.insee.fr/fr/statistiques/2540004" target="_blank") Insee - Fichier des prénoms (Édition 2016)
+      //- .bottom
+        //- .block
+        //-   .share-url
+        //-     div Partagez ces résultats avec ce lien :
+        //-     input(ref="share-url" type="text" @click="selectUrl", :value="shareUrl")
+        //-   .social-links
+        //-     iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdataaddict.fr%2Fprenoms%2F&layout=button_count&size=large&mobile_iframe=true&appId=388906134841894&width=120&height=28" width="120" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true")
+        //-     a.twitter-share-button(href="https://twitter.com/share" data-size="large" data-via="_Data_Addict_" data-lang="fr" data-hashtags="70ansdeprénoms")
+        //-     a.github-button(href="https://github.com/dataaddict/prenoms" data-style="mega" aria-label="Star dataaddict/prenoms on GitHub") Star
+        //- .explanations
+        //-   | Les prénoms sélectionnés sont les plus courants en France, ils ont été donnés au moins 2000 fois entre 1945 et 2015. Source :
+        //-   a(href="https://www.insee.fr/fr/statistiques/2540004" target="_blank") Insee - Fichier des prénoms (Édition 2016)
 </template>
 
 <script>
