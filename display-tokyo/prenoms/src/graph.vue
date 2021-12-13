@@ -317,7 +317,7 @@ export default {
       this.xScale.domain([this.range.from, this.range.to - 1])
       this.xAxis.tickValues(_.range(this.range.from, this.range.to, 5))
 
-      const maxBirths = Math.max(maxBirthsCount(this.forenames, this.range) * 1.1, 300)
+      const maxBirths = Math.max(maxBirthsCount(this.forenames, this.range) * 1.1, 20)
       this.yScale.domain([0, maxBirths])
     },
 
