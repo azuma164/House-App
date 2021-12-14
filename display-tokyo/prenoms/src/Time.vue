@@ -1,21 +1,167 @@
+<style lang="stylus">
+@import "./css/colors"
+
+html
+  height 100%
+  margin 0
+  padding 0
+
+a:visited
+  color: #6e4cb9
+
+body
+  font-family "HelveticaLTStd-Roman", sans-serif
+  font-size 18px
+  //width $width - 17px*2
+  color color1
+  background-color #fff
+
+body, #app, content
+  height 100%
+
+content
+  display: flex
+  flex-direction: row
+  padding-left: 19px
+
+.title
+  margin-bottom: 10px
+  margin-top: 10px
+  h1
+    color: color-male
+    font-family: "HelveticaLTStd-Bold"
+    font-size: 35px
+  h2
+    font-size: 24px
+    margin-bottom: -4px
+  h1, h2
+    margin: 0
+
+.left-side
+  max-width 500px
+  min-width 300px
+  width 33%
+  display: flex
+  flex-direction: column
+  margin-bottom: 10px
+
+.right-side
+  flex: 1
+
+form.search
+  position: relative
+  height: 32px
+  > *
+    position: absolute
+
+  .search-image
+    left: 4px
+    top: 6px
+
+  .clear
+    top: 6px
+    right: 0
+
+  input
+    color: #333
+    font-family: "HelveticaLTStd-Roman"
+    font-size: 19px
+    padding-left 26px
+    padding-top 4px
+    width: calc(100% - 30px)
+  a
+    color: red
+    font-family: sans-serif
+    right: 0
+    text-decoration: none
+
+.forenames-list-container
+  flex: 1
+  overflow scroll
+  margin-top 10px
+
+ul.forenames-list
+  list-style none
+  padding 0
+  margin 0
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  li
+    cursor pointer
+    padding 3px
+    line-height 0.9
+    display: inline-flex
+    align-items: center
+    &.m
+      color color-male
+    &.f
+      color color-female
+    &.selected
+      line-height 1
+      color white
+
+.share-url
+  cursor: crosshair
+
+.bottom
+  margin-bottom: 20px
+  padding: 20px 95px 0 50px
+  font-size: 12px
+  color: color-male
+
+  input[type=text]
+    color: #333333
+    width: 250px
+
+  .block
+    display flex
+    justify-content: space-between
+  a
+    text-decoration: none
+  .social-links > *
+    margin-left 10px
+  .social
+    float: left
+    margin-top: -9px
+    width: 117px
+    > *
+      display: block
+  .logo
+    margin-top: -8px
+    margin-left: -5px
+    float: left
+  .explanations
+    margin-top: 1em
+</style>
+
 <template lang="pug">
-#app
+#time
   content
     .left-side
       .title
-        h2 言語
-    #nav
-    .tab-area-base
-      div
-      .tab-menu-base
-        ul
-        li
-        router-link(to='/') Home
-        li
-        router-link(to='/routing') Routing
-        li
-        router-link(to='/time') Time
-      router-view
+        h2 1950 ~ 2021 :
+        h1 東京における72年間における名称ごとの物件数の変化
+      form.search
+        input(type="text" autocomplete="off" placeholder="Research..." v-model="searchQuery")
+        img.search-image(src="./images/search.png")
+        a.clear(href="#" v-show="searchQuery.length" @click="searchQuery = ''")
+          img(src="./images/clear.png")/
+      .forenames-list-container
+        ul.forenames-list(ref="forenamesList")
+          li(v-for="forenameData in displayedForenames",
+            :class="[forenameData.sex, forenameData.selected ? 'selected' : '']",
+            :style="forenameStyle(forenameData)",
+            :title="forenameData.alternatives ? 'autres orthographes: ' + forenameData.alternatives.join(', ') : null",
+            v-text="forenameData.forename"
+            @click.prevent="toggleForename(forenameData)"
+          )
+    .right-side
+      graph(
+        :forenames="selectedForenames",
+        @forename:remove="toggleForename",
+        @year-range="setYearRange"
+      )
       //- .bottom
         //- .block
         //-   .share-url

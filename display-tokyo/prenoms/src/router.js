@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Routing from './views/Routing.vue'
+import Time from './Time.vue'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/routing',
       name: 'routing',
       component: Routing 
+    },
+    {
+      path: '/time',
+      name: 'time',
+      component: Time
     }
   ]
 })
