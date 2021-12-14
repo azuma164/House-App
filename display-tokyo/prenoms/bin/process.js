@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const { loadJSON, saveJSON } = require('./services/data-file')
-const yearsRange = _.range(1945, 2016)
+const yearsRange = _.range(1950, 2021)
 
 Promise
   .all([loadJSON('src/data/raw.json'), loadJSON('src/data/homonyms.json')])

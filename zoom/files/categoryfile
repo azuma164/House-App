@@ -1,0 +1,154 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "valuable",
+   "children": [
+    {
+     "name": "valuable",
+     "value": 22
+    },
+    {
+     "name": "palace",
+     "value": 22
+    }
+   ]
+  },
+  {
+   "name": "name",
+   "children": [
+    {
+     "name": "name",
+     "value": 9
+    }
+   ]
+  },
+  {
+   "name": "sacred",
+   "children": [
+    {
+     "name": "sacred",
+     "value": 5
+    },
+    {
+     "name": "god",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "name": "topography",
+   "children": [
+    {
+     "name": "nature",
+     "value": 31
+    },
+    {
+     "name": "topography",
+     "value": 22
+    }
+   ]
+  },
+  {
+   "name": "animals & plants",
+   "children": [
+    {
+     "name": "animals",
+     "value": 10
+    },
+    {
+     "name": "plants",
+     "value": 11
+    }
+   ]
+  },
+  {
+   "name": "abstraction",
+   "children": [
+    {
+     "name": "valuable",
+     "value": 62
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "children": [
+    {
+     "name": "people",
+     "value": 18
+    }
+   ]
+  },
+  {
+   "name": "beauty",
+   "children": [
+    {
+     "name": "beauty",
+     "value": 22
+    },
+    {
+     "name": "excel",
+     "value": 32
+    }
+   ]
+  },
+  {
+   "name": "house",
+   "children": [
+    {
+     "name": "house",
+     "value": 31
+    }
+   ]
+  },
+  {
+   "name": "nature",
+   "children": [
+    {
+     "name": "inside nature",
+     "value": 5
+    },
+    {
+     "name": "outside nature",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "name": "city",
+   "children": [
+    {
+     "name": "urban",
+     "value": 6
+    },
+    {
+     "name": "suburbs",
+     "value": 7
+    }
+   ]
+  },
+  {
+   "name": "familiar",
+   "children": [
+    {
+     "name": "family",
+     "value": 4
+    },
+    {
+     "name": "friends",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "name": "daily life",
+   "children": [
+    {
+     "name": "daily life",
+     "value": 9
+    }
+   ]
+  }
+ ]
+}

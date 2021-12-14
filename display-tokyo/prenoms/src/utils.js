@@ -6,7 +6,7 @@ const colorScales = {
   f: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f'])
 }
 
-export const years = _.range(1945, 2016)
+export const years = _.range(1950, 2021)
 
 export function forenameColor (d) {
   return colorScales[d.sex](d.forename)
