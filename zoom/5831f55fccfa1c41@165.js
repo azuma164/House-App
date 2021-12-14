@@ -16,7 +16,7 @@ export default function define(runtime, observer) {
 
   var zoom2 = d3.zoom()
   .scaleExtent([0.1, 10])
-  .on("zoom", function(){
+  .on("zoom", function(d){
     container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   });
 
@@ -25,6 +25,7 @@ export default function define(runtime, observer) {
       .style("display", "block")
       .style("margin", "0 -14px")
       .style("cursor", "pointer")
+      .style("background", "red")
       .call(zoom2)
       .on("click", (event) => zoom(event, root));
 
@@ -36,14 +37,41 @@ export default function define(runtime, observer) {
   .style("fill", "none")
   .style("pointer-events", "all");
 
+  var languageHash = {};
+  d3.csv("./meaning.csv").then(function(data){
+    data.forEach(function(d){
+      languageHash[d['綴り']] = [d['言語コード'], d['意味']]
+      console.log([d['言語コード'], d['意味']])
+    })
+    console.log('lang='+JSON.stringify(languageHash))
+  })
+  console.log('lang_hash='+JSON.stringify(languageHash))
+
+  var tooltip = d3.select("body").append("div").attr("class", "tooltip")
+
   const node = svg.append("g")
     .selectAll("circle")
     .data(root.descendants().slice(1))
     .join("circle")
       .attr("fill", d => d.children ? color(d.depth) : "white")
       .attr("pointer-events", d => !d.children ? "none" : null)
-      .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
-      .on("mouseout", function() { d3.select(this).attr("stroke", null); })
+      .on('mouseover', (e, d) => {
+        if (!d.children){
+          tooltip
+            .style("visibility", "visible")
+            .html("lang: "+languageHash[d.properties.name][0]+"<br>meaning: "+languageHash[d.properties.name][1])
+        }
+        console.log(d)
+      })
+      .on("mousemove", function(d){
+        tooltip
+            .style("top", 40+ "px")
+            .style("left", 0 + "px")
+      })
+      .on("mouseout", function() {
+        tooltip.style("visibility", "hidden");
+        return d3.select(this).attr("stroke", null); 
+      })
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()))
       .attr("transform", function(d) {    // 円のX,Y座標を設定
         return "translate(" + 20 + "," + 50 + ")";
