@@ -77,7 +77,7 @@ function heat_map(lang) {
             var tokyo = topojson.feature(data, data.objects.tokyo);
 
             var projection = d3.geoMercator()
-                .center([139.7, 35.7])
+                .center([139.8, 35.7])
                 .translate([width / 2, height / 2])
                 .scale(60000)
             var path = d3.geoPath().projection(projection);
@@ -89,30 +89,30 @@ function heat_map(lang) {
                 .attr("d", path)
                 .attr("fill", function(d) {
                     if (d.properties.area_ja != "都区部") {
-                        return "rgb(230,230,230)";
+                        return "rgb(255,255,255)";
                     } else {
-                        return "rgb(255," +
+                        return "rgb(25," +
                             Math.floor(color(lang_array[d.properties.ward_ja])) + ", " +
                             Math.floor(color(lang_array[d.properties.ward_ja])) + ")"
                     }
                 })
-                .attr("stroke", "rgb(230,230,230)")
+                .attr("stroke", "rgb(255,255,255)")
                 .attr("stroke-width", 0.5);
 
-            pref
-                .on("mouseover", function(m, d) {
-                    tooltip
-                        .style("visibility", "visible")
-                        .html("市区町村: " + d.properties.ward_ja + "<br>建物数: " + lang_array[d.properties.ward_ja])
-                })
-                .on("mousemove", function(d) {
-                    tooltip
-                        .style("top", 0 + "px")
-                        .style("left", 0 + "px")
-                })
-                .on("mouseout", function(d) {
-                    tooltip.style("visibility", "hidden");
-                })
+            // pref
+            //     .on("mouseover", function(m, d) {
+            //         tooltip
+            //             .style("visibility", "visible")
+            //             .html("市区町村: " + d.properties.ward_ja + "<br>建物数: " + lang_array[d.properties.ward_ja])
+            //     })
+            //     .on("mousemove", function(d) {
+            //         tooltip
+            //             .style("top", 0 + "px")
+            //             .style("left", 0 + "px")
+            //     })
+            //     .on("mouseout", function(d) {
+            //         tooltip.style("visibility", "hidden");
+            //     })
         })
     }
 }

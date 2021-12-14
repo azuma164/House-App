@@ -1,0 +1,1455 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "valuable",
+   "children": [
+    {
+     "name": "adel",
+     "value": 1
+    },
+    {
+     "name": "\u03b1\u03be\u03af\u03b1",
+     "value": 1
+    },
+    {
+     "name": "imperial",
+     "value": 1
+    },
+    {
+     "name": "valore",
+     "value": 1
+    },
+    {
+     "name": "esquire",
+     "value": 1
+    },
+    {
+     "name": "eminence",
+     "value": 1
+    },
+    {
+     "name": "ellegance",
+     "value": 1
+    },
+    {
+     "name": "queen",
+     "value": 1
+    },
+    {
+     "name": "classy",
+     "value": 1
+    },
+    {
+     "name": "crest",
+     "value": 1
+    },
+    {
+     "name": "core load",
+     "value": 1
+    },
+    {
+     "name": "court",
+     "value": 1
+    },
+    {
+     "name": "chateau",
+     "value": 1
+    },
+    {
+     "name": "ch\u00e2telet",
+     "value": 1
+    },
+    {
+     "name": "jewel",
+     "value": 1
+    },
+    {
+     "name": "sheloss",
+     "value": 1
+    },
+    {
+     "name": "zephyr",
+     "value": 1
+    },
+    {
+     "name": "diamond",
+     "value": 1
+    },
+    {
+     "name": "diamond",
+     "value": 1
+    },
+    {
+     "name": "palace",
+     "value": 1
+    },
+    {
+     "name": "token",
+     "value": 1
+    },
+    {
+     "name": "pearl",
+     "value": 1
+    },
+    {
+     "name": "palacio",
+     "value": 1
+    },
+    {
+     "name": "palais",
+     "value": 1
+    },
+    {
+     "name": "palace",
+     "value": 1
+    },
+    {
+     "name": "peer",
+     "value": 1
+    },
+    {
+     "name": "briliance",
+     "value": 1
+    },
+    {
+     "name": "prince",
+     "value": 1
+    },
+    {
+     "name": "precious",
+     "value": 1
+    },
+    {
+     "name": "maison d'or",
+     "value": 1
+    },
+    {
+     "name": "dor",
+     "value": 1
+    },
+    {
+     "name": "luxury",
+     "value": 1
+    },
+    {
+     "name": "riche",
+     "value": 1
+    },
+    {
+     "name": "ritz",
+     "value": 1
+    },
+    {
+     "name": "luxe",
+     "value": 1
+    },
+    {
+     "name": "ch\u00e2telet",
+     "value": 1
+    },
+    {
+     "name": "rubl",
+     "value": 1
+    },
+    {
+     "name": "lusso",
+     "value": 1
+    },
+    {
+     "name": "jade",
+     "value": 1
+    },
+    {
+     "name": "rex",
+     "value": 1
+    },
+    {
+     "name": "royal",
+     "value": 1
+    },
+    {
+     "name": "layal",
+     "value": 1
+    },
+    {
+     "name": "royal",
+     "value": 1
+    },
+    {
+     "name": "royal",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "name",
+   "children": [
+    {
+     "name": "ID",
+     "value": 1
+    },
+    {
+     "name": "adenium",
+     "value": 1
+    },
+    {
+     "name": "Wille",
+     "value": 1
+    },
+    {
+     "name": "claudia",
+     "value": 1
+    },
+    {
+     "name": "Grandi",
+     "value": 1
+    },
+    {
+     "name": "Chambord",
+     "value": 1
+    },
+    {
+     "name": "James",
+     "value": 1
+    },
+    {
+     "name": "diana",
+     "value": 1
+    },
+    {
+     "name": "saint-Emilion",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "sacred",
+   "children": [
+    {
+     "name": "asyl",
+     "value": 1
+    },
+    {
+     "name": "Atl\u0101s",
+     "value": 1
+    },
+    {
+     "name": "apis",
+     "value": 1
+    },
+    {
+     "name": "io",
+     "value": 1
+    },
+    {
+     "name": "wing",
+     "value": 1
+    },
+    {
+     "name": "angel",
+     "value": 1
+    },
+    {
+     "name": "caterina",
+     "value": 1
+    },
+    {
+     "name": "clio",
+     "value": 1
+    },
+    {
+     "name": "cr\u00e9ation",
+     "value": 1
+    },
+    {
+     "name": "grace",
+     "value": 1
+    },
+    {
+     "name": "sanctus",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "topography",
+   "children": [
+    {
+     "name": "isle",
+     "value": 1
+    },
+    {
+     "name": "ascot",
+     "value": 1
+    },
+    {
+     "name": "east",
+     "value": 1
+    },
+    {
+     "name": "vert",
+     "value": 1
+    },
+    {
+     "name": "verte",
+     "value": 1
+    },
+    {
+     "name": "verde",
+     "value": 1
+    },
+    {
+     "name": "welt",
+     "value": 1
+    },
+    {
+     "name": "wood",
+     "value": 1
+    },
+    {
+     "name": "\u00c9clair",
+     "value": 1
+    },
+    {
+     "name": "eco",
+     "value": 1
+    },
+    {
+     "name": "el flat",
+     "value": 1
+    },
+    {
+     "name": "oriental",
+     "value": 1
+    },
+    {
+     "name": "orient",
+     "value": 1
+    },
+    {
+     "name": "olympos",
+     "value": 1
+    },
+    {
+     "name": "canyon",
+     "value": 1
+    },
+    {
+     "name": "green",
+     "value": 1
+    },
+    {
+     "name": "crescent",
+     "value": 1
+    },
+    {
+     "name": "cosmo",
+     "value": 1
+    },
+    {
+     "name": "south",
+     "value": 1
+    },
+    {
+     "name": "sunny",
+     "value": 1
+    },
+    {
+     "name": "sun",
+     "value": 1
+    },
+    {
+     "name": "sunrise",
+     "value": 1
+    },
+    {
+     "name": "sea",
+     "value": 1
+    },
+    {
+     "name": "xebec",
+     "value": 1
+    },
+    {
+     "name": "sky",
+     "value": 1
+    },
+    {
+     "name": "sevenstar",
+     "value": 1
+    },
+    {
+     "name": "sol",
+     "value": 1
+    },
+    {
+     "name": "soliel",
+     "value": 1
+    },
+    {
+     "name": "sonnenstern",
+     "value": 1
+    },
+    {
+     "name": "aster",
+     "value": 1
+    },
+    {
+     "name": "top",
+     "value": 1
+    },
+    {
+     "name": "dolf",
+     "value": 1
+    },
+    {
+     "name": "baum",
+     "value": 1
+    },
+    {
+     "name": "heights",
+     "value": 1
+    },
+    {
+     "name": "pacific",
+     "value": 1
+    },
+    {
+     "name": "\u03a0\u03ac\u03c1\u03bf\u03c2",
+     "value": 1
+    },
+    {
+     "name": "view",
+     "value": 1
+    },
+    {
+     "name": "hill",
+     "value": 1
+    },
+    {
+     "name": "hills",
+     "value": 1
+    },
+    {
+     "name": "forest",
+     "value": 1
+    },
+    {
+     "name": "place",
+     "value": 1
+    },
+    {
+     "name": "promenade",
+     "value": 1
+    },
+    {
+     "name": "bellecolline",
+     "value": 1
+    },
+    {
+     "name": "port",
+     "value": 1
+    },
+    {
+     "name": "mi luna",
+     "value": 1
+    },
+    {
+     "name": "light",
+     "value": 1
+    },
+    {
+     "name": "land",
+     "value": 1
+    },
+    {
+     "name": "river",
+     "value": 1
+    },
+    {
+     "name": "lumiere",
+     "value": 1
+    },
+    {
+     "name": "lumine",
+     "value": 1
+    },
+    {
+     "name": "lake",
+     "value": 1
+    },
+    {
+     "name": "loire",
+     "value": 1
+    },
+    {
+     "name": "Loire",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "animals & plants",
+   "children": [
+    {
+     "name": "eagle",
+     "value": 1
+    },
+    {
+     "name": "wisteria",
+     "value": 1
+    },
+    {
+     "name": "wild-rose",
+     "value": 1
+    },
+    {
+     "name": "verjus",
+     "value": 1
+    },
+    {
+     "name": "gardenia",
+     "value": 1
+    },
+    {
+     "name": "\u03b3\u03ac\u03bb\u03b1",
+     "value": 1
+    },
+    {
+     "name": "conifer",
+     "value": 1
+    },
+    {
+     "name": "\u0441\u0430\u043b\u043e",
+     "value": 1
+    },
+    {
+     "name": "seeds",
+     "value": 1
+    },
+    {
+     "name": "jay",
+     "value": 1
+    },
+    {
+     "name": "stork",
+     "value": 1
+    },
+    {
+     "name": "dragon",
+     "value": 1
+    },
+    {
+     "name": "flower",
+     "value": 1
+    },
+    {
+     "name": "primerose",
+     "value": 1
+    },
+    {
+     "name": "lion",
+     "value": 1
+    },
+    {
+     "name": "lily bell",
+     "value": 1
+    },
+    {
+     "name": "lilien",
+     "value": 1
+    },
+    {
+     "name": "lupin",
+     "value": 1
+    },
+    {
+     "name": "le lion",
+     "value": 1
+    },
+    {
+     "name": "rose",
+     "value": 1
+    },
+    {
+     "name": "laurel",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "abstraction",
+   "children": [
+    {
+     "name": "blanc",
+     "value": 1
+    },
+    {
+     "name": "eye",
+     "value": 1
+    },
+    {
+     "name": "axle",
+     "value": 1
+    },
+    {
+     "name": "apr\u00e8s",
+     "value": 1
+    },
+    {
+     "name": "alcyon",
+     "value": 1
+    },
+    {
+     "name": "initiative",
+     "value": 1
+    },
+    {
+     "name": "index",
+     "value": 1
+    },
+    {
+     "name": "win",
+     "value": 1
+    },
+    {
+     "name": "west",
+     "value": 1
+    },
+    {
+     "name": "vera",
+     "value": 1
+    },
+    {
+     "name": "bell",
+     "value": 1
+    },
+    {
+     "name": "verena",
+     "value": 1
+    },
+    {
+     "name": "ever",
+     "value": 1
+    },
+    {
+     "name": "open",
+     "value": 1
+    },
+    {
+     "name": "ober",
+     "value": 1
+    },
+    {
+     "name": "Olympics",
+     "value": 1
+    },
+    {
+     "name": "chaos",
+     "value": 1
+    },
+    {
+     "name": "qualia",
+     "value": 1
+    },
+    {
+     "name": "gr\u00e2ce \u00e0",
+     "value": 1
+    },
+    {
+     "name": "coop",
+     "value": 1
+    },
+    {
+     "name": "comfort",
+     "value": 1
+    },
+    {
+     "name": "side",
+     "value": 1
+    },
+    {
+     "name": "scene",
+     "value": 1
+    },
+    {
+     "name": "chaleur",
+     "value": 1
+    },
+    {
+     "name": "zoom",
+     "value": 1
+    },
+    {
+     "name": "square",
+     "value": 1
+    },
+    {
+     "name": "style",
+     "value": 1
+    },
+    {
+     "name": "stage",
+     "value": 1
+    },
+    {
+     "name": "center",
+     "value": 1
+    },
+    {
+     "name": "century",
+     "value": 1
+    },
+    {
+     "name": "central",
+     "value": 1
+    },
+    {
+     "name": "soft",
+     "value": 1
+    },
+    {
+     "name": "dina",
+     "value": 1
+    },
+    {
+     "name": "duplex",
+     "value": 1
+    },
+    {
+     "name": "duo",
+     "value": 1
+    },
+    {
+     "name": "two",
+     "value": 1
+    },
+    {
+     "name": "truth",
+     "value": 1
+    },
+    {
+     "name": "tor",
+     "value": 1
+    },
+    {
+     "name": "phoenix",
+     "value": 1
+    },
+    {
+     "name": "dream",
+     "value": 1
+    },
+    {
+     "name": "dormi",
+     "value": 1
+    },
+    {
+     "name": "nick",
+     "value": 1
+    },
+    {
+     "name": "north",
+     "value": 1
+    },
+    {
+     "name": "noble",
+     "value": 1
+    },
+    {
+     "name": "part",
+     "value": 1
+    },
+    {
+     "name": "pallium",
+     "value": 1
+    },
+    {
+     "name": "big",
+     "value": 1
+    },
+    {
+     "name": "first",
+     "value": 1
+    },
+    {
+     "name": "fine",
+     "value": 1
+    },
+    {
+     "name": "forme",
+     "value": 1
+    },
+    {
+     "name": "front",
+     "value": 1
+    },
+    {
+     "name": "pair",
+     "value": 1
+    },
+    {
+     "name": "million",
+     "value": 1
+    },
+    {
+     "name": "more",
+     "value": 1
+    },
+    {
+     "name": "list",
+     "value": 1
+    },
+    {
+     "name": "libre",
+     "value": 1
+    },
+    {
+     "name": "rim",
+     "value": 1
+    },
+    {
+     "name": "re-rent",
+     "value": 1
+    },
+    {
+     "name": "le fond",
+     "value": 1
+    },
+    {
+     "name": "regza",
+     "value": 1
+    },
+    {
+     "name": "referir",
+     "value": 1
+    },
+    {
+     "name": "world",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "children": [
+    {
+     "name": "van",
+     "value": 1
+    },
+    {
+     "name": "vip",
+     "value": 1
+    },
+    {
+     "name": "crianca",
+     "value": 1
+    },
+    {
+     "name": "concierge",
+     "value": 1
+    },
+    {
+     "name": "samaria",
+     "value": 1
+    },
+    {
+     "name": "gender",
+     "value": 1
+    },
+    {
+     "name": "jeunesse",
+     "value": 1
+    },
+    {
+     "name": "C\u00e9sar",
+     "value": 1
+    },
+    {
+     "name": "twin",
+     "value": 1
+    },
+    {
+     "name": "nerd",
+     "value": 1
+    },
+    {
+     "name": "mime",
+     "value": 1
+    },
+    {
+     "name": "my",
+     "value": 1
+    },
+    {
+     "name": "morris",
+     "value": 1
+    },
+    {
+     "name": "Junias",
+     "value": 1
+    },
+    {
+     "name": "lainez",
+     "value": 1
+    },
+    {
+     "name": "l'gente",
+     "value": 1
+    },
+    {
+     "name": "renaissance",
+     "value": 1
+    },
+    {
+     "name": "realize",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "beauty",
+   "children": [
+    {
+     "name": "ars",
+     "value": 1
+    },
+    {
+     "name": "wellith",
+     "value": 1
+    },
+    {
+     "name": "well",
+     "value": 1
+    },
+    {
+     "name": "excelia",
+     "value": 1
+    },
+    {
+     "name": "excel",
+     "value": 1
+    },
+    {
+     "name": "excelsior",
+     "value": 1
+    },
+    {
+     "name": "excellence",
+     "value": 1
+    },
+    {
+     "name": "excellent",
+     "value": 1
+    },
+    {
+     "name": "espoir",
+     "value": 1
+    },
+    {
+     "name": "kind",
+     "value": 1
+    },
+    {
+     "name": "calme",
+     "value": 1
+    },
+    {
+     "name": "grand",
+     "value": 1
+    },
+    {
+     "name": "glanz",
+     "value": 1
+    },
+    {
+     "name": "grande",
+     "value": 1
+    },
+    {
+     "name": "grand duo",
+     "value": 1
+    },
+    {
+     "name": "crevia",
+     "value": 1
+    },
+    {
+     "name": "grace",
+     "value": 1
+    },
+    {
+     "name": "clair",
+     "value": 1
+    },
+    {
+     "name": "glow",
+     "value": 1
+    },
+    {
+     "name": "gloria",
+     "value": 1
+    },
+    {
+     "name": "glorio",
+     "value": 1
+    },
+    {
+     "name": "surpass",
+     "value": 1
+    },
+    {
+     "name": "charmant",
+     "value": 1
+    },
+    {
+     "name": "charme",
+     "value": 1
+    },
+    {
+     "name": "joyful",
+     "value": 1
+    },
+    {
+     "name": "cynthia",
+     "value": 1
+    },
+    {
+     "name": "sweet",
+     "value": 1
+    },
+    {
+     "name": "sk\u0101ra",
+     "value": 1
+    },
+    {
+     "name": "C'est joli",
+     "value": 1
+    },
+    {
+     "name": "c'est bon",
+     "value": 1
+    },
+    {
+     "name": "serena",
+     "value": 1
+    },
+    {
+     "name": "scent",
+     "value": 1
+    },
+    {
+     "name": "dolce",
+     "value": 1
+    },
+    {
+     "name": "dresser",
+     "value": 1
+    },
+    {
+     "name": "nice",
+     "value": 1
+    },
+    {
+     "name": "new",
+     "value": 1
+    },
+    {
+     "name": "neo",
+     "value": 1
+    },
+    {
+     "name": "nova",
+     "value": 1
+    },
+    {
+     "name": "patina",
+     "value": 1
+    },
+    {
+     "name": "buhne",
+     "value": 1
+    },
+    {
+     "name": "pleasure",
+     "value": 1
+    },
+    {
+     "name": "belle",
+     "value": 1
+    },
+    {
+     "name": "bellgrade",
+     "value": 1
+    },
+    {
+     "name": "bel jour",
+     "value": 1
+    },
+    {
+     "name": "bonheur",
+     "value": 1
+    },
+    {
+     "name": "marks",
+     "value": 1
+    },
+    {
+     "name": "useful",
+     "value": 1
+    },
+    {
+     "name": "raffistar",
+     "value": 1
+    },
+    {
+     "name": "raffine",
+     "value": 1
+    },
+    {
+     "name": "living oasis",
+     "value": 1
+    },
+    {
+     "name": "leben",
+     "value": 1
+    },
+    {
+     "name": "regalis",
+     "value": 1
+    },
+    {
+     "name": "lexel",
+     "value": 1
+    },
+    {
+     "name": "legend",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "house",
+   "children": [
+    {
+     "name": "annex",
+     "value": 1
+    },
+    {
+     "name": "habitation",
+     "value": 1
+    },
+    {
+     "name": "habiter",
+     "value": 1
+    },
+    {
+     "name": "villa",
+     "value": 1
+    },
+    {
+     "name": "estate",
+     "value": 1
+    },
+    {
+     "name": "casa",
+     "value": 1
+    },
+    {
+     "name": "castle",
+     "value": 1
+    },
+    {
+     "name": "castle",
+     "value": 1
+    },
+    {
+     "name": "stage",
+     "value": 1
+    },
+    {
+     "name": "cradle",
+     "value": 1
+    },
+    {
+     "name": "coopo",
+     "value": 1
+    },
+    {
+     "name": "condo",
+     "value": 1
+    },
+    {
+     "name": "condominium",
+     "value": 1
+    },
+    {
+     "name": "chambre",
+     "value": 1
+    },
+    {
+     "name": "sophia",
+     "value": 1
+    },
+    {
+     "name": "studio",
+     "value": 1
+    },
+    {
+     "name": "terrace",
+     "value": 1
+    },
+    {
+     "name": "dwell",
+     "value": 1
+    },
+    {
+     "name": "domicile",
+     "value": 1
+    },
+    {
+     "name": "domus",
+     "value": 1
+    },
+    {
+     "name": "heimat",
+     "value": 1
+    },
+    {
+     "name": "heim",
+     "value": 1
+    },
+    {
+     "name": "house",
+     "value": 1
+    },
+    {
+     "name": "home",
+     "value": 1
+    },
+    {
+     "name": "home",
+     "value": 1
+    },
+    {
+     "name": "marion",
+     "value": 1
+    },
+    {
+     "name": "maison",
+     "value": 1
+    },
+    {
+     "name": "maison",
+     "value": 1
+    },
+    {
+     "name": "maison",
+     "value": 1
+    },
+    {
+     "name": "residence",
+     "value": 1
+    },
+    {
+     "name": "residence",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "nature",
+   "children": [
+    {
+     "name": "viale",
+     "value": 1
+    },
+    {
+     "name": "garden",
+     "value": 1
+    },
+    {
+     "name": "tower",
+     "value": 1
+    },
+    {
+     "name": "diage",
+     "value": 1
+    },
+    {
+     "name": "dips",
+     "value": 1
+    },
+    {
+     "name": "domain",
+     "value": 1
+    },
+    {
+     "name": "park",
+     "value": 1
+    },
+    {
+     "name": "patio",
+     "value": 1
+    },
+    {
+     "name": "parterre",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "city",
+   "children": [
+    {
+     "name": "urban",
+     "value": 1
+    },
+    {
+     "name": "avenue",
+     "value": 1
+    },
+    {
+     "name": "villeneuve",
+     "value": 1
+    },
+    {
+     "name": "village",
+     "value": 1
+    },
+    {
+     "name": "verona",
+     "value": 1
+    },
+    {
+     "name": "voga corte",
+     "value": 1
+    },
+    {
+     "name": "galicia",
+     "value": 1
+    },
+    {
+     "name": "capital",
+     "value": 1
+    },
+    {
+     "name": "city",
+     "value": 1
+    },
+    {
+     "name": "sitio",
+     "value": 1
+    },
+    {
+     "name": "state",
+     "value": 1
+    },
+    {
+     "name": "national",
+     "value": 1
+    },
+    {
+     "name": "wako",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "familiar",
+   "children": [
+    {
+     "name": "peer",
+     "value": 1
+    },
+    {
+     "name": "famille",
+     "value": 1
+    },
+    {
+     "name": "familiar",
+     "value": 1
+    },
+    {
+     "name": "family",
+     "value": 1
+    },
+    {
+     "name": "rapport",
+     "value": 1
+    },
+    {
+     "name": "reliance",
+     "value": 1
+    },
+    {
+     "name": "rivale",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "daily life",
+   "children": [
+    {
+     "name": "gala",
+     "value": 1
+    },
+    {
+     "name": "station",
+     "value": 1
+    },
+    {
+     "name": "cena",
+     "value": 1
+    },
+    {
+     "name": "feast",
+     "value": 1
+    },
+    {
+     "name": "merci",
+     "value": 1
+    },
+    {
+     "name": "life",
+     "value": 1
+    },
+    {
+     "name": "live",
+     "value": 1
+    },
+    {
+     "name": "vie",
+     "value": 1
+    },
+    {
+     "name": "libest",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "name": "prime",
+   "children": [
+    {
+     "name": "prime",
+     "value": 1
+    },
+    {
+     "name": "prestige",
+     "value": 1
+    },
+    {
+     "name": "prosperity",
+     "value": 1
+    },
+    {
+     "name": "main",
+     "value": 1
+    }
+   ]
+  }
+ ]
+}

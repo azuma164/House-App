@@ -3,10 +3,12 @@ function word_cloud() {
     var DATA_FILE_PATH = 'data.json'; // 読み込みデータファイル
     const TARGET_ELEMENT_ID = '#cloud'; // 描画先
     languages = ["en", "fr", "it", "de", "gr", "ru", "es"];
-    fonts = ["serif", "Helvetica", "sans-serif", "Impact"]
+    fonts = ["serif", "Ink Free", "sans-serif", "Impact", "cursive", "script",
+        "Arial Black"
+    ]
 
     const fontScale = d3.scaleOrdinal().domain(languages).range(fonts);
-    const colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeCategory10)
+    const colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeDark2);
 
     d3.csv("data/words_count.csv").then(function(data_words) {
         let words = data_words.map(function(d) {
@@ -74,7 +76,8 @@ function word_cloud() {
                 .style("font-size", function(d) { return d.size + "px"; })
                 .style("font-family", function(d) { return d.lang_font })
                 .style("fill", function(d, i) { return d.lang_color })
-                .style("background-image", "url(" + "uk.png" + ")")
+
+            .style("background-image", "url(" + "uk.png" + ")")
                 .style("-webkit-background-clip", "text")
                 .attr("text-anchor", "middle")
                 .attr("transform", function(d) {
@@ -100,6 +103,7 @@ function word_cloud() {
                 .on("mouseover", function(d, i) {
                     const mouse_over_text = i;
                     const highlight_language = i.lang;
+                    document.getElementById("word_cloud_selected_language").innerText = language_code_to_katakana(highlight_language);
                     // 他の国を薄くする。
                     d3.select("body").select("svg").selectAll("text").each(function(d, i) {
                         if (d.lang != highlight_language) {
@@ -116,6 +120,8 @@ function word_cloud() {
 
                 })
                 .on("mouseout", function(d, i) {
+                    document.getElementById("word_cloud_selected_language").innerText = "";
+
                     // 色を戻す
                     d3.select("body").select("svg").selectAll("text").each(function(d) {
                         d3.select(this).style("fill", function(d, i) { return d.lang_color })
@@ -139,5 +145,30 @@ function word_cloud() {
             const lang_name = d3.select("body").select("svg").selectAll("lang_name")
         }
     });
+
+}
+
+function language_code_to_katakana(code) {
+    switch (code) {
+        case "en":
+            return "英";
+            break;
+        case "fr":
+            return "フランス";
+            break;
+        case "it":
+            return "イタリア"
+        case "es":
+            return "スペイン"
+        case "de":
+            return "ドイツ"
+        case "gr":
+            return "ギリシャ"
+        case "ru":
+            return "ロシア"
+        case "la":
+            return "ラテン"
+
+    }
 
 }
