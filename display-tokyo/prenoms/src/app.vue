@@ -162,6 +162,16 @@ ul.forenames-list
         @forename:remove="toggleForename",
         @year-range="setYearRange"
       )
+    #nav
+    .tab-area-base
+      div
+      .tab-menu-base
+        ul
+        li
+        router-link(to='/') Home
+        li
+        router-link(to='/routing') Routing
+      router-view
       //- .bottom
         //- .block
         //-   .share-url
