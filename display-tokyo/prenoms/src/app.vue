@@ -1,9 +1,5 @@
 <template lang="pug">
 #app
-  content
-    .left-side
-      .title
-        h2 言語
     #nav
     .tab-area-base
       div

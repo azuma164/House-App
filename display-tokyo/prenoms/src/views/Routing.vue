@@ -1,42 +1,22 @@
 <template>
-  <div :class="$style.parent">
-    <div :class="$style.child">
-      <h1>Routing Test Page</h1>
-    </div>
+  <div>
+   <div id='chart' ></div>
   </div>
 </template>
-
 <script>
-export default {
-  name: 'RoutingController'
-}
+  import * as d3 from 'd3'
+  import Lang from '../all_languages'
+  export default {
+    name: 'Routing',
+    data() {
+      return {
+     }
+    },
+  methods:{
+    
+   },
+ mounted(){
+   Lang.all_languages('en', d3);
+   }
+ }
 </script>
-<style module>
-.parent {
-  margin-top: 50px;
-  height: 500px;
-  width: 100%;
-  /* 子要素を中央に配置する */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.child {
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  /* 子要素を中央に配置する */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.item {
-  width: 150px;
-}
-
-.value {
-  width: 400px;
-}
-</style>
