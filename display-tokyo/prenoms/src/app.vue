@@ -1,29 +1,22 @@
+<style>
+@import "./css/header.css";
+</style>
 <template lang="pug">
-#app
-    #nav
-    .tab-area-base
-      div
-      .tab-menu-base
-        ul
-        li
-        router-link(to='/') Home
-        li
-        router-link(to='/routing') Routing
-        li
-        router-link(to='/time') Time
-      router-view
-      //- .bottom
-        //- .block
-        //-   .share-url
-        //-     div Partagez ces résultats avec ce lien :
-        //-     input(ref="share-url" type="text" @click="selectUrl", :value="shareUrl")
-        //-   .social-links
-        //-     iframe(src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdataaddict.fr%2Fprenoms%2F&layout=button_count&size=large&mobile_iframe=true&appId=388906134841894&width=120&height=28" width="120" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true")
-        //-     a.twitter-share-button(href="https://twitter.com/share" data-size="large" data-via="_Data_Addict_" data-lang="fr" data-hashtags="70ansdeprénoms")
-        //-     a.github-button(href="https://github.com/dataaddict/prenoms" data-style="mega" aria-label="Star dataaddict/prenoms on GitHub") Star
-        //- .explanations
-        //-   | Les prénoms sélectionnés sont les plus courants en France, ils ont été donnés au moins 2000 fois entre 1945 et 2015. Source :
-        //-   a(href="https://www.insee.fr/fr/statistiques/2540004" target="_blank") Insee - Fichier des prénoms (Édition 2016)
+<div id='app'>
+  <header>
+    <h1>
+        <a href="/">建物<span>名</span>で見る物件</a>
+    </h1>
+    <nav class="nav">
+        <ul>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/routing">Routing</router-link></li>
+            <li><router-link to="/time">Time</router-link></li>
+        </ul>
+    </nav>
+  </header>
+  <router-view/>
+</div>
 </template>
 
 <script>
@@ -106,21 +99,6 @@ export default {
       const backgroundColor = forenameData.selected ? forenameColor(forenameData) : ''
       return _.assign({ backgroundColor }, forenameData.style)
     },
-
-    // selectUrl () {
-    //   // http://stackoverflow.com/a/1173319
-    //   const el = this.$refs['share-url']
-    //
-    //   if (document.selection) {
-    //     var range = document.body.createTextRange()
-    //     range.moveToElementText(el)
-    //     range.select()
-    //   } else if (window.getSelection) {
-    //     const range = document.createRange()
-    //     range.selectNode(el)
-    //     window.getSelection().addRange(range)
-    //   }
-    // }
     selectUrl () {
       this.$refs['share-url'].select()
     }
