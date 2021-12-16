@@ -32,7 +32,7 @@
     .axis
       text
         fill color-male
-        font-size 13px
+        font-size 10px
       .tick line
         stroke color1
         stroke-dasharray 2, 3
@@ -58,7 +58,7 @@
 
   .year-zoomers
     font-family "HelveticaLTStd-Roman"
-    font-size 13px
+    font-size 10px
     color color-male
     display flex
     width calc(100% - 146px)

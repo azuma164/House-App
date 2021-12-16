@@ -1,6 +1,5 @@
 <style lang="stylus">
-@import "./css/header.css";
-@import "./css/colors";
+@import "./css/colors"
 
 html
   height 100%
@@ -10,44 +9,28 @@ html
 a:visited
   color: #6e4cb9
 
-body
-  font-family "HelveticaLTStd-Roman", sans-serif
-  font-size 18px
-  //width $width - 17px*2
-  color color1
-  background-color #fff
-
-body, #app, content
-  height 100%
-
 content
   display: flex
   flex-direction: row
-  padding-left: 19px
-
-.title
-  margin-bottom: 10px
-  margin-top: 10px
-  h1
-    color: color-male
-    font-family: "HelveticaLTStd-Bold"
-    font-size: 35px
-  h2
-    font-size: 24px
-    margin-bottom: -4px
-  h1, h2
-    margin: 0
+  padding-left: 19px;
 
 .left-side
-  max-width 500px
-  min-width 300px
-  width 33%
-  display: flex
-  flex-direction: column
-  margin-bottom: 10px
+  width: 45%;
+  height: 1350px;
+  float: left;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 4px solid #19b244;
+  margin: 10px;
 
 .right-side
-  flex: 1
+  width: 45%;
+  height: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 4px solid #19b244;
+  margin: 10px;
+  float: right;
 
 form.search
   position: relative
@@ -101,28 +84,6 @@ ul.forenames-list
     &.selected
       line-height 1
       color white
-    &.en
-      color color-en
-    &.ge
-      color color-ge
-    &.fr
-      color color-fr
-    &.de
-      color color-de
-    &.es
-      color color-es      
-    &.it
-      color color-it
-    &.la
-      color color-la
-    &.el
-      color color-el
-    &.ru
-      color color-ru
-    &.pt
-      color color-pt
-    &.ja
-      color color-ja  
 
 .share-url
   cursor: crosshair
@@ -157,23 +118,43 @@ ul.forenames-list
   .explanations
     margin-top: 1em
 </style>
+
 <template lang="pug">
-<div id='app'>
-  <header>
-    <h1>
-        <a href="/">建物<span>名</span>で見る物件</a>
-    </h1>
-    //- <a href="http://127.0.0.1:8887/language.html">遷移</a>
-    <nav class="nav">
-        <ul>
-            <li><router-link to="/">言語</router-link></li>
-            <li><router-link to="/routing">意味</router-link></li>
-            <li><router-link to="/time">時代</router-link></li>
-        </ul>
-    </nav>
-  </header>
-  <router-view/>
-</div>
+#time
+    .title
+      h2 時系列で見る
+    .left-side
+      form.search
+        input(type="text" autocomplete="off" placeholder="Research..." v-model="searchQuery")
+        img.search-image(src="./images/search.png")
+        a.clear(href="#" v-show="searchQuery.length" @click="searchQuery = ''")
+          img(src="./images/clear.png")/
+      .forenames-list-container
+        ul.forenames-list(ref="forenamesList")
+          li(v-for="forenameData in displayedForenames",
+            :class="[forenameData.sex, forenameData.selected ? 'selected' : '']",
+            :style="forenameStyle(forenameData)",
+            :title="forenameData.alternatives ? 'autres orthographes: ' + forenameData.alternatives.join(', ') : null",
+            v-text="forenameData.forename"
+            @click.prevent="toggleForename(forenameData)"
+          )
+    .right-side
+      graph(
+        :forenames="selectedForenames",
+        @forename:remove="toggleForename",
+        @year-range="setYearRange"
+      )
+//- <div id="time">
+//-   <slot class="title">
+//-     <h2>1950~2021</h2>
+//-     <h1>東京の72年間における名称ごとの物件数の変化</h1>
+//-     <form class="search">
+//-       <input type="text" autocomplete="off" placeholder="Research..." v-model="searchQuery">
+//-       <img class="search-image" src="./images/search.png" />
+//-       <a class="clear" href="#" v-show="searchQuery.length">
+//-     </form>
+//-   </slot>
+//- </div>
 </template>
 
 <script>
@@ -183,7 +164,7 @@ import _ from 'lodash'
 import graph from './graph.vue'
 
 export default {
-  name: 'app',
+  name: 'time',
   components: { graph },
   data () {
     return {
@@ -247,7 +228,7 @@ export default {
       _(this.forenames)
         .each(forenameData => {
           // const [fontSize, lineHeight] = sizes[level]
-          const fontSize = fontSizeScale(maxBirthsCount([forenameData], this.range)) + 'px'
+          const fontSize = fontSizeScale(maxBirthsCount([forenameData], this.range)*0.7) + 'px'
           forenameData.style = { fontSize }
         })
     },

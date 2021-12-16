@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/language.css">
+
+    <script src="js/d3.js" charset="utf-8"></script>
+    <script src="js/topojson.js" charset="utf-8"></script>
+    <script src="js/heat_map.js" charset="utf-8"></script>
+    <script src="js/word_cloud.js" charset="utf-8"></script>
+    <script src="js/d3.layout.cloud.js" charset="utf-8"></script>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+
+    <title>言語で見る</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">建物<span>名</span>で見る物件</a>
+        </h1>
+        <nav class="pc-nav">
+            <ul>
+                <li><a href="http://127.0.0.1:8003/language.html">言語</a></li>
+                <li><a href="#">意味</a></li>
+                <li><a href="http://127.0.0.1:8887/time">時代</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div id="word_cloud_text">
+            <h2 id="word_cloud_selected_language"></h2>
+
+            <h2 id="word_cloud_fixed_text">語の建物名</h2>
+        </div>
+        <div id="heat_map_text">
+            <h2 id="heat_map_fixed_text">その言語の分布</h2>
+        </div>
+    </div>
+    <div id="cloud"></div>
+    <!-- <a href="#" class="arrow"></a> -->
+    <div id="map"></div>
+
+    <script type="text/javascript">
+        word_cloud();
+    </script>
+</body>
+
+</html>

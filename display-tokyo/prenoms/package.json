@@ -23,7 +23,7 @@
     "browserify": "14.1.0",
     "chokidar": "1.6.1",
     "css-loader": "0.27.3",
-    "d3": "4.7.2",
+    "d3": "^4.7.2",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.10.1",
     "google-spreadsheet": "2.0.3",
@@ -42,7 +42,9 @@
     "url-loader": "0.5.8",
     "vue": "2.2.4",
     "vue-loader": "11.1.4",
+    "vue-router": "^3.5.3",
     "vue-template-compiler": "2.2.4",
+    "vuex": "^3.6.2",
     "webpack": "2.2.1",
     "webpack-dev-server": "2.4.2"
   },
