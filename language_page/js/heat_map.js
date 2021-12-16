@@ -1,6 +1,6 @@
 function heat_map(lang) {
-    width = document.body.clientWidth / 2;
-    height = 400;
+    const width = document.body.clientWidth / 2;
+    const height = 400;
 
     d3.select("#map").select("svg").remove();
 
@@ -35,7 +35,7 @@ function heat_map(lang) {
 
     d3.csv('data/city_language.csv').then(function(data) {
         data.forEach(function(d) {
-            sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
+            var sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
             let language_rate = Number(d[lang]) / sum_buildings // その言語がその区の建物数にしめる割合
             lang_array[d['city']] = language_rate
 

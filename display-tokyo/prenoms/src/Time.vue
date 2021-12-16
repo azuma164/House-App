@@ -16,7 +16,7 @@ content
 
 .left-side
   width: 45%;
-  height: 1350px;
+  height: 500px;
   float: left;
   background-color: #ffffff;
   border-radius: 10px;
@@ -25,7 +25,7 @@ content
 
 .right-side
   width: 45%;
-  height: 800px;
+  height: 500px;
   background-color: #ffffff;
   border-radius: 10px;
   border: 4px solid #19b244;
