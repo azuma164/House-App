@@ -86,10 +86,11 @@ function heat_map(lang) {
 
             pref
                 .on("mouseover", function(m, d) {
-                    if (!lang_array[d.properties.ward_ja].isNaN())
+                    if (d.properties.area_ja == "都区部") {
                         tooltip
-                        .style("visibility", "visible")
-                        .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
+                            .style("visibility", "visible")
+                            .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
+                    }
                 })
                 .on("mousemove", function(d) {
                     tooltip
