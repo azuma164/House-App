@@ -1,8 +1,8 @@
 function word_cloud() {
     var DATA_FILE_PATH = 'data.json'; // 読み込みデータファイル
     const TARGET_ELEMENT_ID = '#cloud'; // 描画先
-    languages = ["en", "fr", "it", "de", "gr", "ru", "es"];
-    fonts = ["serif", "Ink Free", "sans-serif", "Impact", "cursive", "script",
+    const languages = ["en", "fr", "it", "de", "gr", "ru", "es"];
+    const fonts = ["serif", "Ink Free", "sans-serif", "Impact", "cursive", "script",
         "Arial Black"
     ]
 
@@ -90,7 +90,7 @@ function word_cloud() {
                     d.stopPropagation();
                     is_selected = true;
                     heat_map(i.lang);
-                    words_clipped = words.filter(name => name.lang == i.lang);
+                    var words_clipped = words.filter(name => name.lang == i.lang);
                     d3.select("#cloud").select("svg").remove();
                     d3.layout.cloud().size([w, h])
                         .words(words_clipped)

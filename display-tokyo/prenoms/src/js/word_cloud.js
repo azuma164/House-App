@@ -85,7 +85,6 @@ function word_cloud() {
                 .attr("id", "name")
                 .on("click", function(d, i) {
                     d3.event.stopPropagation();
-                    console.log('d====='+JSON.stringify(d))
                     is_selected = true;
                     heat_map(d.lang);
                     var words_clipped = words.filter(name => name.lang == d.lang);
@@ -275,7 +274,7 @@ function heat_map(lang) {
                 .attr("stroke-width", 0.5);
 
             pref
-                .on("mouseover", function(m, d) {
+                .on("mouseover", function(d, m) {
                     if (d.properties.area_ja == "都区部") {
                         tooltip
                             .style("visibility", "visible")
