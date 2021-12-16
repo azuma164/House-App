@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home2 from './Home2.vue'
 import Routing from './views/Routing.vue'
 import Time from './Time.vue'
 
@@ -14,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'home2',
+      component: Home2
     },
     {
       path: '/routing',

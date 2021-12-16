@@ -7,11 +7,12 @@
     <h1>
         <a href="/">建物<span>名</span>で見る物件</a>
     </h1>
+    //- <a href="http://127.0.0.1:8887/language.html">遷移</a>
     <nav class="nav">
         <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/routing">Routing</router-link></li>
-            <li><router-link to="/time">Time</router-link></li>
+            <li><router-link to="/">言語</router-link></li>
+            <li><router-link to="/routing">意味</router-link></li>
+            <li><router-link to="/time">時代</router-link></li>
         </ul>
     </nav>
   </header>
