@@ -86,7 +86,7 @@ function heat_map(lang) {
 
             pref
                 .on("mouseover", function(m, d) {
-                    if (!lang_array[d.properties.ward_ja].isNaN)
+                    if (!lang_array[d.properties.ward_ja].isNaN())
                         tooltip
                         .style("visibility", "visible")
                         .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
