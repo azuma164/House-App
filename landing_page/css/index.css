@@ -47,13 +47,14 @@ Mainvisual
 }
 
 #main_visual h1 {
+    color: #FFFFFF;
     position: absolute;
     top: 50%;
     left: 50%;
     text-align: center;
-    font-size: 70px;
+    font-size: 80px;
     margin-top: -100px;
-    margin-left: -250px;
+    margin-left: -270px;
 }
 
 
@@ -69,6 +70,10 @@ Text
 
 .text .site-title {
     margin-bottom: 20px;
+}
+
+#description {
+    line-height: 40px;
 }
 
 
@@ -89,15 +94,15 @@ paddingでボタンのサイズを調整。
     background-color: #FFFFFF;
 }
 
-.text.btn {
+.text .btn {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
-.text.btn:hover {
-    background-color: #194BD2;
+.text .btn:hover {
+    background-color: #DDDDDD;
 }
 
 
