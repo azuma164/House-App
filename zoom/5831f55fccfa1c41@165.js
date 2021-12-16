@@ -47,10 +47,18 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
   })
   console.log('lang_hash='+JSON.stringify(languageHash))
 
-  // var nameHash = {};
-  // d3.csv("./files/alphabet_to_housename").then(function(data){
-  //   conso
-  // })
+  var nameHash = {};
+  var limit = 15
+  d3.csv("./files/alphabet_to_housename.csv").then(function(data){
+    data.forEach(function(d){
+      if (!(d["alphabet"] in nameHash)){
+        nameHash[d["alphabet"]] = []
+      } 
+      if (nameHash[d["alphabet"]].length < limit){
+        nameHash[d["alphabet"]].push(d["name"])
+      }
+    })
+  })
 
   var tooltip = d3.select("body").append("div").attr("class", "tooltip")
 
@@ -69,14 +77,14 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
         if (!d.children){
           tooltip
             .style("visibility", "visible")
-            .html("lang: "+languageHash[d.data.name][0]+"<br>meaning: "+languageHash[d.data.name][1])
+            .html("word: "+d.data.name +"<br>lang: "+languageHash[d.data.name][0]+"<br>meaning: "+languageHash[d.data.name][1]+"<br>building: "+nameHash[d.data.name])
         }
-        console.log(d.data.name)
       })
-      .on("mousemove", function(d){
+      .on("mousemove", function(e, d){
+        console.log(d)
         tooltip
-            .style("top", 0+ "px")
-            .style("left", 0 + "px")
+            .style("top", d.y +"px")
+            .style("left", d.x +"px")
       })
       .on("mouseout", function() {
         tooltip.style("visibility", "hidden");
@@ -168,3 +176,13 @@ require("d3@6")
 )});
   return main;
 }
+
+// var pointdata = [[139.69, 35.68], [139, 36]];
+// var point = svg.selectAll("circle")
+//     .data(pointdata)
+//     .enter()
+//     .append("circle")
+//     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+//     .attr("cy", function (d) { return projection(d)[1]; })
+//     .attr("r", "8px")
+//     .attr("fill", "red")

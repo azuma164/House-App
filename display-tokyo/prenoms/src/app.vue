@@ -100,6 +100,28 @@ ul.forenames-list
     &.selected
       line-height 1
       color white
+    &.en
+      color color-en
+    &.ge
+      color color-ge
+    &.fr
+      color color-fr
+    &.de
+      color color-de
+    &.es
+      color color-es      
+    &.it
+      color color-it
+    &.la
+      color color-la
+    &.el
+      color color-el
+    &.ru
+      color color-ru
+    &.pt
+      color color-pt
+    &.ja
+      color color-ja  
 
 .share-url
   cursor: crosshair

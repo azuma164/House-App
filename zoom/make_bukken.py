@@ -55,7 +55,9 @@ name = pd.Series(name)
 billdings = pd.Series(billdings)
 
 df = pd.concat([name, billdings], axis=1)
+df.columns = ["alphabet", "name"]
 
 with codecs.open("./files/alphabet_to_housename", "w") as outfile:
     json.dump(dic, outfile, indent=1)
 
+df.to_csv("./files/alphabet_to_housename.csv", encoding='utf-8')

@@ -3,7 +3,18 @@ import _ from 'lodash'
 
 const colorScales = {
   m: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
-  f: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f'])
+  f: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  en: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
+  fr: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  de: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
+  es: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  it: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
+  la: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  ge: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
+  el: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  ru: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c']),
+  pt: d3.scaleOrdinal().range(['#a15599', '#d57599', '#b98c6f', '#e0da2f']),
+  ja: d3.scaleOrdinal().range(['#4c5d91', '#4c92b9', '#53a488', '#a5ad5c'])
 }
 
 export const years = _.range(1950, 2021)

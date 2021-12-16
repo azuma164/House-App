@@ -25,12 +25,18 @@ dic = {}
 start_year = 1950
 end_year = 2021
 
+dic_lang = {}
+
 for mean in meaning:
-    if mean[3] == "":
+    if mean[2] == "":
         continue
+    if mean[1] == "":
+      print(mean[0])
     dic_i = {}
     dic_i["forename"] = mean[3]
-    dic_i["sex"] = "m" if random.uniform(0, 1) > 0.5 else "f" #適当に分けてみた
+    dic_i["sex"] = mean[1]
+    if not mean[1] in dic_lang.keys():
+      dic_lang[mean[1]] = ""
     dic_i["births"] = [0] * (end_year - start_year + 1) #とりあえず1950-2021で表示させてみる
     dic_i["forenameUnique"] = mean[3]
     dic_i["id"] = mean[3]
@@ -59,6 +65,8 @@ for bill in buiding:
 json_list = []
 for v in dic.values():
     json_list.append(v)
+
+print(dic_lang)
 
 with open("./forenames_suumo.json", "w") as outfile:
     json.dump(json_list, outfile)
