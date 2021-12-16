@@ -181,6 +181,8 @@ function language_code_to_katakana(code) {
             return "ラテン"
         case "pt":
             return "ポルトガル"
+        case "ja":
+            return "日本"
 
     }
 
