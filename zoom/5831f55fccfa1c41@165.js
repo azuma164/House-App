@@ -5,14 +5,14 @@ export default function define(runtime, observer) {
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
 //   main.variable(observer()).define(["md"], function(md){return(
 // md`# Zoomable Circle Packing
-
 // Click to zoom in or out.`
 // )});
-  main.variable(observer("chart")).define("chart", ["pack","data","d3","width","height","color"], function(pack,data,d3,width,height,color)
+main.variable(observer("chart")).define("chart", ["pack","data","d3","width","height","color"], function(pack,data,d3,width,height,color)
 {
   const root = pack(data);
   let focus = root;
   let view;
+  var zoomed = false;
 
   var zoom2 = d3.zoom()
   .scaleExtent([0.1, 10])
@@ -25,7 +25,7 @@ export default function define(runtime, observer) {
       .style("display", "block")
       .style("margin", "0 -14px")
       .style("cursor", "pointer")
-      .style("background", "red")
+      .style("background", "#FAF8ED")
       .call(zoom2)
       .on("click", (event) => zoom(event, root));
 
@@ -47,6 +47,11 @@ export default function define(runtime, observer) {
   })
   console.log('lang_hash='+JSON.stringify(languageHash))
 
+  // var nameHash = {};
+  // d3.csv("./files/alphabet_to_housename").then(function(data){
+  //   conso
+  // })
+
   var tooltip = d3.select("body").append("div").attr("class", "tooltip")
 
   const node = svg.append("g")
@@ -54,25 +59,34 @@ export default function define(runtime, observer) {
     .data(root.descendants().slice(1))
     .join("circle")
       .attr("fill", d => d.children ? color(d.depth) : "white")
-      .attr("pointer-events", d => !d.children ? "none" : null)
-      .on('mouseover', (e, d) => {
+      // .attr("pointer-events", function(d) {
+      //   if (zoomed == false){
+      //     return !d.children ? "none" : null
+      //   }
+      // })
+      .on('mouseover', function(e, d) {
+        d3.select(this).attr("stroke", "#000");
         if (!d.children){
           tooltip
             .style("visibility", "visible")
-            .html("lang: "+languageHash[d.properties.name][0]+"<br>meaning: "+languageHash[d.properties.name][1])
+            .html("lang: "+languageHash[d.data.name][0]+"<br>meaning: "+languageHash[d.data.name][1])
         }
-        console.log(d)
+        console.log(d.data.name)
       })
       .on("mousemove", function(d){
         tooltip
-            .style("top", 40+ "px")
+            .style("top", 0+ "px")
             .style("left", 0 + "px")
       })
       .on("mouseout", function() {
         tooltip.style("visibility", "hidden");
-        return d3.select(this).attr("stroke", null); 
+        d3.select(this).attr("stroke", null); 
       })
-      .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()))
+      .on("click", function(event, d) {
+        if (d.children) {
+          focus !== d && (zoom(event, d), event.stopPropagation());
+        }
+      })
       .attr("transform", function(d) {    // 円のX,Y座標を設定
         return "translate(" + 20 + "," + 50 + ")";
       })
@@ -108,7 +122,7 @@ export default function define(runtime, observer) {
     const transition = svg.transition()
         .duration(event.altKey ? 7500 : 750)
         .tween("zoom", d => {
-          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
+          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 * 0.8]);
           return t => zoomTo(i(t));
         });
 
@@ -138,7 +152,7 @@ data => d3.pack()
 450 //932
 )});
   main.define("height", ["width"], function(width){return(
-200 //width //main.variable(observer("height"))
+230 //width //main.variable(observer("height"))
 )});
   main.define("format", ["d3"], function(d3){return(
 d3.format(",d")
