@@ -1,6 +1,6 @@
 import * as d3 from "d3";
-// import * as cloud from "d3-cloud";
 import topojson from "./topojson";
+
 const cloud = require('d3-cloud')
 function word_cloud() {
     console.log('wordcloud!!')
@@ -97,9 +97,9 @@ function word_cloud() {
                 .text(function(d) { return d.text; })
                 .attr("id", "name")
                 .on("click", function(d, i) {
-                    d.stopPropagation();
-                    heat_map(i.lang);
-                    words_clipped = words.filter(name => name.lang == i.lang);
+                    d3.event.stopPropagation();
+                    heat_map(d.lang);
+                    var words_clipped = words.filter(name => name.lang == d.lang);
                     d3.select("#cloud").select("svg").remove();
                     console.log('!!!!!!!!!')
                     cloud().size([w, h])
@@ -160,11 +160,12 @@ function word_cloud() {
 }
 
 function heat_map(lang) {
-    console.log('lang='+lang)
-    var width = document.body.clientWidth / 2;
-    var height = 400;
+    const width = document.body.clientWidth / 2;
+    const height = 400;
 
     d3.select("#map").select("svg").remove();
+
+    console.log('JJJJJJJJ')
 
     var svg = d3.select("#map").append("svg")
         .attr("width", width)
@@ -172,69 +173,55 @@ function heat_map(lang) {
 
     var title = '';
     switch (lang) {
-        case 'en':
-            title = '英語'
+        case 'es':
+            lang = "sp"
             break
-        case 'fr':
-            title = 'フランス語'
+        case 'de':
+            lang = "ge"
             break
-        case 'sp':
-            title = 'スペイン語'
-            break
-        case 'ge':
-            title = 'ドイツ語'
-            break
-        case 'it':
-            title = 'イタリア語'
-            break
-        case 'la':
-            title = 'ラテン語'
-            break
-        case 'gr':
-            title = 'ギリシャ語'
-            break
-        case 'ru':
-            title = 'ロシア語'
-            break
-        case 'po':
-            title = 'ポルトガル語'
-            break
-        case 'ja':
-            title = '日本語'
+        case 'el':
+            lang = "gr"
             break
         default:
-            title = ''
+            break;
     }
+
+
 
     // d3.select("body").append("h2").html(title).attr("class", "title_lang")
 
     var lang_array = {}
 
-    var max_num_city = 0
-        // ここでスクレイピングでデータを取得
+    var max_language_rate = 0;
+    let min_language_rate = 1;
+    // ここでスクレイピングでデータを取得
 
     d3.csv('src/data/city_language.csv',function(data) {
-        console.log('data='+data)
         data.forEach(function(d) {
-            var sum_lang = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
-            if (sum_lang != 0) {
-                lang_array[d['city']] = Number(d[lang]) / sum_lang;
-            } else {
-                lang_array[d['city']] = 0;
+            var sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
+            let language_rate = Number(d[lang]) / sum_buildings // その言語がその区の建物数にしめる割合
+            lang_array[d['city']] = language_rate
+
+            if (language_rate > max_language_rate) {
+                max_language_rate = language_rate
             }
-            if (lang_array[d['city']] > Number(max_num_city)) {
-                max_num_city = lang_array[d['city']]
+            if (language_rate < min_language_rate) {
+                min_language_rate = language_rate
             }
         })
+        console.log(min_language_rate, max_language_rate)
         showMap();
     })
 
     var tooltip = d3.select("body").append("div").attr("class", "tooltip")
 
     function showMap() {
-        var color = d3.scaleLinear()
-            .domain([0, max_num_city])
-            .range([255, 0]);
+        // var color = d3.scaleLinear()
+        //     .domain([min_language_rate, max_language_rate])
+        //     .range([255, 0]);
+
+        const color = d3.scaleLinear()
+            .domain([min_language_rate - 0.01, max_language_rate]).range(["white", "#19B244"]);
 
         d3.json("src/data/tokyo.topojson", function(data) {
             var tokyo = topojson.feature(data, data.objects.tokyo);
@@ -254,28 +241,28 @@ function heat_map(lang) {
                     if (d.properties.area_ja != "都区部") {
                         return "rgb(255,255,255)";
                     } else {
-                        return "rgb(25," +
-                            Math.floor(color(lang_array[d.properties.ward_ja])) + ", " +
-                            Math.floor(color(lang_array[d.properties.ward_ja])) + ")"
+                        return color(lang_array[d.properties.ward_ja])
                     }
                 })
                 .attr("stroke", "rgb(255,255,255)")
                 .attr("stroke-width", 0.5);
 
-            // pref
-            //     .on("mouseover", function(m, d) {
-            //         tooltip
-            //             .style("visibility", "visible")
-            //             .html("市区町村: " + d.properties.ward_ja + "<br>建物数: " + lang_array[d.properties.ward_ja])
-            //     })
-            //     .on("mousemove", function(d) {
-            //         tooltip
-            //             .style("top", 0 + "px")
-            //             .style("left", 0 + "px")
-            //     })
-            //     .on("mouseout", function(d) {
-            //         tooltip.style("visibility", "hidden");
-            //     })
+            pref
+                .on("mouseover", function(m, d) {
+                    if (d.properties.area_ja == "都区部") {
+                        tooltip
+                            .style("visibility", "visible")
+                            .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
+                    }
+                })
+                .on("mousemove", function(d) {
+                    tooltip
+                        .style("top", d.clientY + "px")
+                        .style("left", d.clientX + "px")
+                })
+                .on("mouseout", function(d) {
+                    tooltip.style("visibility", "hidden");
+                })
         })
     }
 }
