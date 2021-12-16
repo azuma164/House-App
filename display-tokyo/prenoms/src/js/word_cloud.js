@@ -13,7 +13,8 @@ function word_cloud() {
     const fontScale = d3.scaleOrdinal().domain(languages).range(fonts);
     console.log(fontScale)
     console.log(d3.schemeCategory10)
-    const colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeBlues);
+    const colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeCategory10);
+    console.log('hoge')
 
     d3.csv("data/words_count.csv", function(data_words) {
         console.log(data_words)
