@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+// import * as d3.layout from "./d3.layout.cloud";
 function word_cloud() {
     console.log('wordcloud!!')
     heat_map('en');
@@ -16,7 +17,7 @@ function word_cloud() {
     const colorScale = d3.scaleOrdinal().domain(languages).range(d3.schemeCategory10);
     console.log('hoge')
 
-    d3.csv("data/words_count.csv", function(data_words) {
+    d3.csv("src/data/words_count.csv", function(data_words) {
         console.log(data_words)
         let words = data_words.map(function(d) {
             return {
@@ -63,6 +64,7 @@ function word_cloud() {
             .fontSize(function(d) { return d.size; })
             .on("end", draw) //描画関数の読み込み
             .start();
+        console.log('!!!!!!!!')
 
         d3.select("body").selectAll("p").html("jjjjj")
 
@@ -97,6 +99,7 @@ function word_cloud() {
                     heat_map(i.lang);
                     words_clipped = words.filter(name => name.lang == i.lang);
                     d3.select("#cloud").select("svg").remove();
+                    console.log('!!!!!!!!!')
                     d3.layout.cloud().size([w, h])
                         .words(words_clipped)
                         // .rotate(0)
@@ -208,10 +211,10 @@ function heat_map(lang) {
     var max_num_city = 0
         // ここでスクレイピングでデータを取得
 
-    d3.csv('data/city_language.csv',function(data) {
+    d3.csv('src/data/city_language.csv',function(data) {
         console.log('data='+data)
         data.forEach(function(d) {
-            sum_lang = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
+            var sum_lang = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
             if (sum_lang != 0) {
                 lang_array[d['city']] = Number(d[lang]) / sum_lang;
             } else {
@@ -231,7 +234,7 @@ function heat_map(lang) {
             .domain([0, max_num_city])
             .range([255, 0]);
 
-        d3.json("data/tokyo.topojson").then(function(data) {
+        d3.json("src/data/tokyo.topojson", function(data) {
             var tokyo = topojson.feature(data, data.objects.tokyo);
 
             var projection = d3.geoMercator()
