@@ -1,5 +1,4 @@
 function word_cloud() {
-    heat_map('en');
     var DATA_FILE_PATH = 'data.json'; // 読み込みデータファイル
     const TARGET_ELEMENT_ID = '#cloud'; // 描画先
     languages = ["en", "fr", "it", "de", "gr", "ru", "es"];
@@ -22,11 +21,11 @@ function word_cloud() {
         })
 
         // memory errorになるため、上位100のみを抽出する
-        words = words.sort(function(a, b) {
-            return (Number(a.count) > Number(b.count)) ? -1 : 1; //オブジェクトの降順ソート
-        });
+        // words = words.sort(function(a, b) {
+        //     return (Number(a.count) > Number(b.count)) ? -1 : 1; //オブジェクトの降順ソート
+        // });
 
-        words = words.slice(0, 110);
+        // words = words.slice(0, 110);
 
         var h = 400;
         var w = 600;
@@ -59,6 +58,8 @@ function word_cloud() {
 
         d3.select("body").selectAll("p").html("jjjjj")
 
+        let is_selected = false;
+
         // wordcloud 描画
         function draw(words) {
 
@@ -87,6 +88,7 @@ function word_cloud() {
                 .attr("id", "name")
                 .on("click", function(d, i) {
                     d.stopPropagation();
+                    is_selected = true;
                     heat_map(i.lang);
                     words_clipped = words.filter(name => name.lang == i.lang);
                     d3.select("#cloud").select("svg").remove();
@@ -120,7 +122,9 @@ function word_cloud() {
 
                 })
                 .on("mouseout", function(d, i) {
-                    document.getElementById("word_cloud_selected_language").innerText = "";
+                    if (!is_selected) {
+                        document.getElementById("word_cloud_selected_language").innerText = "";
+                    }
 
                     // 色を戻す
                     d3.select("body").select("svg").selectAll("text").each(function(d) {
@@ -132,15 +136,20 @@ function word_cloud() {
                 });
 
             d3.select("svg").on("click", function(d) {
-                d3.selectAll("svg").remove();
-                d3.layout.cloud().size([w, h])
-                    .words(words_original)
-                    .rotate(function() { return Math.random() > 0.5 ? 0 : 90 })
-                    // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
-                    // .font("Impact")
-                    .fontSize(function(d) { return d.size; })
-                    .on("end", draw) //描画関数の読み込み
-                    .start();
+                if (is_selected) {
+                    d3.selectAll("svg").remove();
+                    is_selected = false;
+                    document.getElementById("word_cloud_selected_language").innerText = "";
+                    d3.layout.cloud().size([w, h])
+                        .words(words_original)
+                        .rotate(0)
+                        // .rotate(function() { return Math.random() > 0.5 ? 0 : 90 })
+                        // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
+                        // .font("Impact")
+                        .fontSize(function(d) { return d.size; })
+                        .on("end", draw) //描画関数の読み込み
+                        .start();
+                }
             })
             const lang_name = d3.select("body").select("svg").selectAll("lang_name")
         }
@@ -164,10 +173,14 @@ function language_code_to_katakana(code) {
             return "ドイツ"
         case "gr":
             return "ギリシャ"
+        case "el":
+            return "ギリシャ"
         case "ru":
             return "ロシア"
         case "la":
             return "ラテン"
+        case "pt":
+            return "ポルトガル"
 
     }
 

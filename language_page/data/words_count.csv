@@ -1,5 +1,5 @@
 name,言語コード,意味,綴り,count
-アーデル,ge,貴族,adel,46
+アーデル,de,貴族,adel,46
 アーバイル,?,,,28
 アーバン,en,都会,urban,318
 アール,en,曲面,r,185
@@ -57,7 +57,7 @@ name,言語コード,意味,綴り,count
 ウェル,en,満足,well,119
 ヴェル,fr,縁,verte,265
 ヴェルデ,it,緑,verde,52
-ヴェルト,ge,世界,welt,51
+ヴェルト,de,世界,welt,51
 ヴェルビュ,fr,ブドウ,verjus,37
 ヴェルレージュ,en,ベル,bell,12
 ヴェレーナ,la,真実,verena,44
@@ -108,7 +108,7 @@ name,言語コード,意味,綴り,count
 クラディア,en,人名,claudia,46
 グラン,es,壮大,grand,1760
 グランセ,?,,,28
-グランツ,ge,輝き,glanz,39
+グランツ,de,輝き,glanz,39
 グランデ,es,偉大,grande,306
 グランディ,ru,人名,Grandi,66
 グランディオ,fr,大二重奏曲,grand duo,17
@@ -182,12 +182,12 @@ name,言語コード,意味,綴り,count
 スカーラ,it,幸せ,skāra,109
 スカイ,en,空,sky,813
 スクエア,en,四角,square,254
-スタイル,en ,様式,style,39
+スタイル,en,様式,style,39
 スタジオデン,?,,,15
 ステイツ,en,国家,state,46
 ステージ,en,段階,stage,1441
 ステーション,en,駅,station,263
-ストーク,en ,コウノトリ,stork,84
+ストーク,en,コウノトリ,stork,84
 スパシエ,?,,,65
 セイガ,?,,,36
 セーナ,es,食べ物,cena,18
@@ -206,7 +206,7 @@ name,言語コード,意味,綴り,count
 ソフト,en,柔らかい,soft,27
 ソル,la,太陽,sol,39
 ソレイユ,fr,太陽,soliel,38
-ゾンネン,ge,太陽,sonnenstern,15
+ゾンネン,de,太陽,sonnenstern,15
 ダイア,en,ダイア,diamond,379
 ダイカン,?,,,50
 ダイナ,?,,,55
@@ -224,7 +224,6 @@ name,言語コード,意味,綴り,count
 サンテミリオン,fr,地名,saint-Emilion,50
 デュープレックス,en,二重の,duplex,41
 デュオ,el,2,duo,223
-パレ,fr,宮殿,palace,1581
 ステュディオ,fr,マンション,studio,102
 テラス,en,テラス,terrace,568
 ドゥエ,ru,2,two,21
@@ -395,7 +394,7 @@ name,言語コード,意味,綴り,count
 リッツ,en,豪華,ritz,24
 リバー,en,川,river,214
 リビオ,en,オアシス,living oasis,126
-リブレ,sp,自由,libre,14
+リブレ,es,自由,libre,14
 リム,en,ふち,rim,94
 リュクス,en,贅沢,luxe,43
 リライアンス,en,信頼,reliance,20
