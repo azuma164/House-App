@@ -1,5 +1,7 @@
 import * as d3 from "d3";
-// import * as d3.layout from "./d3.layout.cloud";
+// import * as cloud from "d3-cloud";
+import topojson from "./topojson";
+const cloud = require('d3-cloud')
 function word_cloud() {
     console.log('wordcloud!!')
     heat_map('en');
@@ -56,7 +58,7 @@ function word_cloud() {
         });
 
 
-        d3.layout.cloud().size([w, h])
+        cloud().size([w, h])
             .words(words_original)
             .rotate(0)
             // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })
@@ -100,7 +102,7 @@ function word_cloud() {
                     words_clipped = words.filter(name => name.lang == i.lang);
                     d3.select("#cloud").select("svg").remove();
                     console.log('!!!!!!!!!')
-                    d3.layout.cloud().size([w, h])
+                    cloud().size([w, h])
                         .words(words_clipped)
                         // .rotate(0)
                         .rotate(function() { return Math.random() > 0.5 ? 0 : 90 })
@@ -143,7 +145,7 @@ function word_cloud() {
 
             d3.select("svg").on("click", function(d) {
                 d3.selectAll("svg").remove();
-                d3.layout.cloud().size([w, h])
+                cloud().size([w, h])
                     .words(words_original)
                     .rotate(function() { return Math.random() > 0.5 ? 0 : 90 })
                     // .rotate(function () { return (~~(Math.random() * 6) - 3) * 30; })

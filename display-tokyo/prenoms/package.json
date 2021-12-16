@@ -24,6 +24,7 @@
     "chokidar": "1.6.1",
     "css-loader": "0.27.3",
     "d3": "^4.7.2",
+    "d3-cloud": "^1.2.5",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.10.1",
     "google-spreadsheet": "2.0.3",
