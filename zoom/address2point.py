@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import time
 import tqdm
 import json
+import codecs
+import csv
 
 URL = 'http://www.geocoding.jp/api/'
 
@@ -42,24 +44,33 @@ def coordinates(addresses, interval=2, progress=True):
         time.sleep(interval)
     return coordinates
 
-with open("alphabet_to_address.json", "r") as f:
-    json_load = json.load(f)
+# with open("alphabet_to_address.json", "r") as f:
+#     json_load = json.load(f)
 
-dic = {}
-dic_name = {}
-for key in ["adel"]:
-    list = []
-    for v in json_load[key]:
-        if v not in dic.keys():
-            dic[v] = coordinate(v)
-        list.append(dic[v])
+# dic = {}
+# dic_name = {}
+# for key in ["adel"]:
+#     list = []
+#     for v in json_load[key]:
+#         if v not in dic.keys():
+#             dic[v] = coordinate(v)
+#         list.append(dic[v])
         
-    dic_name[key] = list
+#     dic_name[key] = list
 
-print(dic)
+# print(dic)
+# print(dic_name)
+
+with codecs.open('./files/13_2020.csv', "r", 'shift_jis') as f:
+  reader = csv.reader(f)
+  meaning = [row for row in reader]
+
+dic_name = {}
+# ヘッダー削除
+meaning = meaning[1:]
+
+for mean in meaning[:5]:
+    ward = mean[1] + mean[3] + mean[5]
+    dic_name[ward] = [mean[6], mean[7]]
+
 print(dic_name)
-
-# print(len(dic.keys()))
-
-# adel_points = coordinates(json_load["adel"])
-# print(adel_points)

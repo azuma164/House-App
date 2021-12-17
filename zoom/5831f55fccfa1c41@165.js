@@ -83,8 +83,8 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
       .on("mousemove", function(e, d){
         console.log(d)
         tooltip
-            .style("top", d.y +"px")
-            .style("left", d.x +"px")
+            .style("top", "50px")
+            .style("left", "1450px")
       })
       .on("mouseout", function() {
         tooltip.style("visibility", "hidden");
@@ -93,6 +93,10 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
       .on("click", function(event, d) {
         if (d.children) {
           focus !== d && (zoom(event, d), event.stopPropagation());
+        }
+        else {
+          focus !== d && (zoom(event, d.parent), event.stopPropagation());
+          name_map(d.data.name);
         }
       })
       .attr("transform", function(d) {    // 円のX,Y座標を設定
@@ -142,6 +146,114 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
         .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
   }
 
+  function name_map(name) {
+    const width = 500; //document.body.clientWidth / 2;
+    const height = 500; //400
+  
+    d3.select("#map").select("svg").remove();
+  
+    var svg = d3.select("#map").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+  
+    var title = '';
+  
+    var lang_array = {}
+  
+    var max_language_rate = 0;
+    let min_language_rate = 1;
+    // ここでスクレイピングでデータを取得
+  
+    // d3.csv('data/city_language.csv').then(function(data) {
+    //     data.forEach(function(d) {
+    //         var sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
+    //         let language_rate = Number(d[lang]) / sum_buildings // その言語がその区の建物数にしめる割合
+    //         lang_array[d['city']] = language_rate
+  
+    //         if (language_rate > max_language_rate) {
+    //             max_language_rate = language_rate
+    //         }
+    //         if (language_rate < min_language_rate) {
+    //             min_language_rate = language_rate
+    //         }
+    //     })
+    //     console.log(min_language_rate, max_language_rate)
+    //     showMap();
+    // })
+    showMap(name);
+  
+    function showMap(name) {
+        // var color = d3.scaleLinear()
+        //     .domain([min_language_rate, max_language_rate])
+        //     .range([255, 0]);
+  
+        d3.json("data/tokyo.topojson").then(function(data) {
+            var tokyo = topojson.feature(data, data.objects.tokyo);
+  
+            var projection = d3.geoMercator()
+                .center([139.8, 35.7])
+                .translate([width / 2, height / 2])
+                .scale(60000)
+            var path = d3.geoPath().projection(projection);
+  
+            var pref = svg.selectAll("path")
+                .data(tokyo.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .attr("fill", function(d) {
+                    if (d.properties.area_ja != "都区部") {
+                        return "rgb(255,255,255)";
+                    } else {
+                        return "green"
+                    }
+                })
+                .attr("stroke", "rgb(255,255,255)")
+                .attr("stroke-width", 0.5);
+  
+            // pref
+            //     .on("mouseover", function(m, d) {
+            //         if (d.properties.area_ja == "都区部") {
+            //             tooltip
+            //                 .style("visibility", "visible")
+            //                 .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
+            //         }
+            //     })
+            //     .on("mousemove", function(d) {
+            //         tooltip
+            //             .style("top", d.clientY + "px")
+            //             .style("left", d.clientX + "px")
+            //     })
+            //     .on("mouseout", function(d) {
+            //         tooltip.style("visibility", "hidden");
+            //     })
+            var pointHash = {}
+            d3.csv("./files/points.csv").then(function(data){
+              data.forEach(function(d){
+                if (!(d["alphabet"] in pointHash)){
+                  pointHash[d["alphabet"]] = []
+                } 
+                pointHash[d["alphabet"]].push([Number(d["x"]), Number(d["y"])]);
+              })
+              var pointdata = [[139.69, 35.68], [139.69, 35.6]];
+
+              if (name in pointHash){
+                pointdata = pointHash[name]
+                console.log(pointdata)
+              }
+              var point = svg.selectAll("circle")
+                          .data(pointdata)
+                          .enter()
+                          .append("circle")
+                          .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+                          .attr("cy", function (d) { return projection(d)[1]; })
+                          .attr("r", "2px")
+                          .attr("fill", "red")
+            })
+        })
+    }
+  }
+
   return svg.node();
 }
 );
@@ -176,13 +288,3 @@ require("d3@6")
 )});
   return main;
 }
-
-// var pointdata = [[139.69, 35.68], [139, 36]];
-// var point = svg.selectAll("circle")
-//     .data(pointdata)
-//     .enter()
-//     .append("circle")
-//     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
-//     .attr("cy", function (d) { return projection(d)[1]; })
-//     .attr("r", "8px")
-//     .attr("fill", "red")
