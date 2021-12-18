@@ -23,7 +23,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
   const svg = d3.create("svg")
       .attr("viewBox", `-${width / 2} -${height / 2} ${width} ${height}`)
       .style("display", "block")
-      .style("margin", "0 -14px")
+      .style("margin-right", "20%")
       .style("cursor", "pointer")
       .style("background", "#FAF8ED")
       .call(zoom2)
@@ -60,7 +60,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
     })
   })
 
-  var tooltip = d3.select("body").append("div").attr("class", "tooltip")
+  var tooltip = d3.select("body").append("div").attr("class", "tooltip-bubble")
 
   const node = svg.append("g")
     .selectAll("circle")
@@ -272,7 +272,7 @@ data => d3.pack()
 450 //932
 )});
   main.define("height", ["width"], function(width){return(
-230 //width //main.variable(observer("height"))
+200 //width //main.variable(observer("height"))
 )});
   main.define("format", ["d3"], function(d3){return(
 d3.format(",d")
