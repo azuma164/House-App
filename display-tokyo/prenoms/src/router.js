@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import WordCloud from './WordCloud.vue'
-import Routing from './views/Routing.vue'
+import Bubble from './Bubble.vue'
 import Time from './Time.vue'
 
 Vue.use(Router)
@@ -13,14 +13,14 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/lang',
       name: 'wordcloud',
       component: WordCloud
     },
     {
-      path: '/routing',
-      name: 'routing',
-      component: Routing 
+      path: '/bubble',
+      name: 'bubble',
+      component: Bubble
     },
     {
       path: '/time',

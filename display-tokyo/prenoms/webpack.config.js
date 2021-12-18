@@ -21,7 +21,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           // vue-loader options go here
-        }
+        }, 
       }, {
         test: /\.pug$/,
         loaders: 'pug-loader',

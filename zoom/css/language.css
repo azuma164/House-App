@@ -1,0 +1,111 @@
+#cloud {
+    width: 45%;
+    height: 500px;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 4px solid #19b244;
+    margin: 10px;
+}
+
+#map {
+    width: 45%;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 4px solid #19b244;
+    margin: 10px;
+    float: right;
+}
+
+#word_cloud_text {
+    display: flex;
+    width: 45%;
+    float: left;
+}
+
+#word_cloud_selected_language {
+    width: 120px;
+    border: 4px solid #19b244;
+    color: #194BD2;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#heat_map_text {
+    width: 45%;
+    float: right;
+}
+
+#word_cloud_selected_language {
+    width: 120px;
+    border: 4px solid #19b244;
+    color: #194BD2;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.arrow {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 16px;
+    color: #000;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 15px;
+    height: 500px;
+}
+
+.arrow::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 40px;
+    height: 50px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 25%;
+    border-radius: 25%;
+}
+
+.arrow::after {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    margin: auto auto auto 20px;
+    content: "";
+    vertical-align: middle;
+    left: 10px;
+    box-sizing: border-box;
+    width: 10px;
+    height: 30px;
+    border: 15px solid transparent;
+    border-left: 15px solid #194BD2;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    font: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    background: white;
+    /* -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); */
+    /* -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); */
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); */
+    border: 2px solid #194BD2;
+    visibility: hidden;
+    pointer-events: none;
+}

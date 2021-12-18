@@ -10,13 +10,6 @@ html
 a:visited
   color: #6e4cb9
 
-body
-  font-family "HelveticaLTStd-Roman", sans-serif
-  font-size 18px
-  //width $width - 17px*2
-  color color1
-  background-color #fff
-
 body, #app, content
   height 100%
 
@@ -161,13 +154,15 @@ ul.forenames-list
 <div id='app'>
   <header>
     <h1>
-        <a href="/">建物<span>名</span>で見る物件</a>
+        <a href="http://localhost:8887/home.html">建物<span>名</span>で眺める物件</a>
     </h1>
-    //- <a href="http://127.0.0.1:8887/language.html">遷移</a>
+    //- <a href="http://localhost:8887/language.html">遷移</a>
     <nav class="nav">
         <ul>
-            <li><router-link to="/">言語</router-link></li>
-            <li><router-link to="/routing">意味</router-link></li>
+            //- <li><router-link to="/lang">言語</router-link></li>
+            <li><a href='http://localhost:8887/language.html'>言語</a></li>
+            //- <li><router-link to="/bubble">意味</router-link></li>
+            <li><a href='http://localhost:8887/'>意味</a></li>
             <li><router-link to="/time">時代</router-link></li>
         </ul>
     </nav>

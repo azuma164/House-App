@@ -15,8 +15,8 @@ content
   padding-left: 19px;
 
 .left-side
-  width: 45%;
-  height: 500px;
+  width: 50%;
+  height: 710px;
   float: left;
   background-color: #ffffff;
   border-radius: 10px;
@@ -24,8 +24,8 @@ content
   margin: 10px;
 
 .right-side
-  width: 45%;
-  height: 500px;
+  width: 50%;
+  height: 710px;
   background-color: #ffffff;
   border-radius: 10px;
   border: 4px solid #19b244;
