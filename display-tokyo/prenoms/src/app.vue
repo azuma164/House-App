@@ -167,7 +167,7 @@ ul.forenames-list
     <nav class="nav">
         <ul>
             <li><router-link to="/">言語</router-link></li>
-            <li><router-link to="/routing">意味</router-link></li>
+            <li><router-link to="/bubble">意味</router-link></li>
             <li><router-link to="/time">時代</router-link></li>
         </ul>
     </nav>
