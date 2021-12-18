@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Zoomable Circle Packing</title>
-<link rel="stylesheet" type="text/css" href="./inspector.css">
+<link rel="stylesheet" type="text/css" href="./css/inspector.css">
+<link rel="stylesheet" href="./css/header.css">
 <body>
+  <header>
+    <h1>
+        <a href="http://localhost:8887/home.html">建物<span>名</span>で眺める物件</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><a href="http://localhost:8887/language.html">言語</a></li>
+            <li><a href="http://localhost:8887/">意味</a></li>
+            <li><a href="http://localhost:8003/time">時代</a></li>
+        </ul>
+    </nav>
+  </header>
+  <div>
+      <div id="word_cloud_text">
+          <h2 id="word_cloud_selected_language"></h2>
+
+          <h2 id="word_cloud_fixed_text">意味で見る</h2>
+      </div>
+  </div>
+</body>
 <script type="module">
 
 import define from "./index.js";

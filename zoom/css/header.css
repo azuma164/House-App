@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* .wf-hannari {
+    font-family: "Hannari";
+}
+
+.wf-sawarabimincho {
+    font-family: "Sawarabi Mincho";
+}
+
+.wf-sawarabigothic {
+    font-family: "Sawarabi Gothic";
+} */
+
+body {
+    margin: 0;
+    padding: 0px 50px 0px 50px;
+    /* font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    /* font-family: "Mincho"; */
+    background-color: #faf8ed;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+header {
+    padding: 30px 0px 10px;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    /* background-color: #ccffff; */
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 20px 0px;
+    border-bottom: 5px solid #19b244;
+}
+
+span {
+    color: #194BD2;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+nav {
+    margin: 0 0 0 auto;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin: 0 0 0 15px;
+    font-size: 18px;
+}

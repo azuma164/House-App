@@ -1,0 +1,172 @@
+@charset "UTF-8";
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #2b2a27;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    background-color: #FAF8ED;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #2b2a27;
+}
+
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+
+
+/*
+「width: 100%;」と「height: 100vh;」で全画面表示にする。
+「object-fit: cover;」でトリミングを行い、「object-position: center top;」で
+横は中央、縦をトップに配置する。
+*/
+
+#main_visual {
+    position: relative;
+}
+
+#main_visual img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* object-position: center top; */
+    margin-bottom: 80px;
+}
+
+#main_visual h1 {
+    color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    font-size: 80px;
+    margin-top: -100px;
+    margin-left: -270px;
+}
+
+
+/*-------------------------------------------
+Text
+-------------------------------------------*/
+
+.text {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 80px;
+}
+
+.text .site-title {
+    margin-bottom: 20px;
+}
+
+#description {
+    line-height: 40px;
+}
+
+
+/*
+「display: inline-block;」でaタグに幅と高さを持たせる。
+paddingでボタンのサイズを調整。
+*/
+
+.text .btn {
+    display: inline-block;
+    border: solid 4px #19B244;
+    border-radius: 10px;
+    /* font-size: 0.875rem; */
+    font-size: 20px;
+    padding: 18px 60px;
+    text-decoration: none;
+    width: 300px;
+    background-color: #FFFFFF;
+}
+
+.text .btn {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.text .btn:hover {
+    background-color: #DDDDDD;
+}
+
+
+/*-------------------------------------------
+Image
+-------------------------------------------*/
+
+.flex {
+    display: flex;
+    margin-bottom: 60px;
+}
+
+
+/*
+「calc(100%/3);」で、widthの値が3等分になるよう計算する。
+※「calc」は、割り切れない数で均等に配置したい場合などに便利。
+*/
+
+.flex li {
+    width: calc(100%/3);
+}
+
+
+/*
+「object-fit: cover;」で、高さを固定したまま
+画面幅に合わせて画像を伸縮させることができる。
+（※IEでは正しく動作しないため注意が必要）
+「vertical-align: bottom;」で画像の下にできる隙間を消す。
+*/
+
+.flex li img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+
+#footer {
+    font-size: 0.75rem;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+
+@media screen and (max-width: 834px) {
+    /*-------------------------------------------
+  Image
+  -------------------------------------------*/
+    /*
+  「flex-direction: column;」で縦並びにする
+  */
+    .flex {
+        flex-direction: column;
+    }
+    .flex li {
+        width: 100%;
+    }
+}
