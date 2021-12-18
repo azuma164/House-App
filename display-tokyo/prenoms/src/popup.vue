@@ -67,9 +67,9 @@ export default {
       const d = _.find(forenameData.births, d => d.year === this.year)
       const count = _.get(d, 'births', 0)
       if (count === 0) {
-        return 'aucune naissance'
+        return '0 house'
       } else {
-        return `${count} naissance${count === 1 ? '' : 's'}`
+        return `${count} house${count === 1 ? '' : 's'}`
       }
     },
     forenameColor, 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<script src="js/topojson.js" charset="utf-8"></script>
 <title>Zoomable Circle Packing</title>
 <link rel="stylesheet" type="text/css" href="./css/inspector.css">
 <link rel="stylesheet" href="./css/header.css">
@@ -23,7 +24,6 @@
           <h2 id="word_cloud_fixed_text">意味で見る</h2>
       </div>
   </div>
-</body>
 <script type="module">
 
 import define from "./index.js";
@@ -33,3 +33,5 @@ const runtime = new Runtime();
 const main = runtime.module(define, Inspector.into(document.body));
 
 </script>
+<div id="map"></div>
+</body>
