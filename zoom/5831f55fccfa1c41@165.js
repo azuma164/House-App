@@ -273,15 +273,14 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
             //         tooltip.style("visibility", "hidden");
             //     })
             var pointHash = {}
-            d3.csv("./files/points.csv").then(function(data){
+            d3.csv("./files/alphabet_to_points.csv").then(function(data){
               data.forEach(function(d){
                 if (!(d["alphabet"] in pointHash)){
                   pointHash[d["alphabet"]] = []
                 } 
                 pointHash[d["alphabet"]].push([Number(d["x"]), Number(d["y"])]);
               })
-              var pointdata = [[139.69, 35.68], [139.69, 35.6]];
-
+              var pointdata = [[139, 36], [138, 37]];
               if (name in pointHash){
                 pointdata = pointHash[name]
                 console.log(pointdata)
@@ -292,7 +291,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
                           .append("circle")
                           .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
                           .attr("cy", function (d) { return projection(d)[1]; })
-                          .attr("r", "2px")
+                          .attr("r", "3px")
                           .attr("fill", "red")
             })
         })
