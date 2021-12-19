@@ -44,6 +44,33 @@ def coordinates(addresses, interval=2, progress=True):
         time.sleep(interval)
     return coordinates
 
+def to_num(number):
+    if number == "一":
+        return "1"
+    elif number == "二":
+        return "2"
+    elif number == "三":
+        return "3"
+    elif number == "四":
+        return "4"
+    elif number == "五":
+        return "5"
+    elif number == "六":
+        return "6"
+    elif number == "七":
+        return "7"
+    elif number == "八":
+        return "8"
+    elif number == "九":
+        return "9"
+    elif number == "十":
+        return "10"
+    elif number == "余":
+        return "余丁町"
+    else:
+        print("undefined")
+        print(number)
+        return number
 # with open("alphabet_to_address.json", "r") as f:
 #     json_load = json.load(f)
 
@@ -69,8 +96,22 @@ dic_name = {}
 # ヘッダー削除
 meaning = meaning[1:]
 
-for mean in meaning[:5]:
-    ward = mean[1] + mean[3] + mean[5]
+for mean in meaning:
+    city = mean[5]
+    if mean[3].find("区") == -1:
+            continue
+
+    if city.rfind("丁") != -1:
+        pos = city.rfind("丁")
+        city = city[:pos - 1] + to_num(city[pos - 1])
+    elif city.find("町") == -1 and city.find("番") != -1:
+        pos = city.rfind("番")
+        city = city[:pos - 1] + to_num(city[pos - 1]) + city[pos:]
+        print(city)
+
+    city = city.replace("ケ", "ヶ")
+    ward = mean[1] + mean[3] + city
     dic_name[ward] = [mean[6], mean[7]]
 
-print(dic_name)
+with codecs.open("./address_to_point.json", "w") as outfile:
+    json.dump(dic_name, outfile, indent=1)
