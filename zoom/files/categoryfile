@@ -2,7 +2,7 @@
  "name": "flare",
  "children": [
   {
-   "name": "valuable",
+   "name": "Valuable",
    "children": [
     {
      "name": "adel",
@@ -183,7 +183,7 @@
    ]
   },
   {
-   "name": "name",
+   "name": "Name",
    "children": [
     {
      "name": "ID",
@@ -224,7 +224,7 @@
    ]
   },
   {
-   "name": "sacred",
+   "name": "Sacred",
    "children": [
     {
      "name": "asyl",
@@ -273,7 +273,7 @@
    ]
   },
   {
-   "name": "topography",
+   "name": "Topography",
    "children": [
     {
      "name": "isle",
@@ -490,7 +490,7 @@
    ]
   },
   {
-   "name": "animals & plants",
+   "name": "Animals & Plants",
    "children": [
     {
      "name": "eagle",
@@ -579,7 +579,7 @@
    ]
   },
   {
-   "name": "abstraction",
+   "name": "Abstraction",
    "children": [
     {
      "name": "blanc",
@@ -832,7 +832,7 @@
    ]
   },
   {
-   "name": "people",
+   "name": "People",
    "children": [
     {
      "name": "van",
@@ -909,7 +909,7 @@
    ]
   },
   {
-   "name": "beauty",
+   "name": "Beauty",
    "children": [
     {
      "name": "ars",
@@ -1130,7 +1130,7 @@
    ]
   },
   {
-   "name": "house",
+   "name": "House",
    "children": [
     {
      "name": "annex",
@@ -1259,7 +1259,7 @@
    ]
   },
   {
-   "name": "nature",
+   "name": "Nature",
    "children": [
     {
      "name": "viale",
@@ -1300,7 +1300,7 @@
    ]
   },
   {
-   "name": "city",
+   "name": "City",
    "children": [
     {
      "name": "urban",
@@ -1357,7 +1357,7 @@
    ]
   },
   {
-   "name": "familiar",
+   "name": "Familiar",
    "children": [
     {
      "name": "peer",
@@ -1390,7 +1390,7 @@
    ]
   },
   {
-   "name": "daily life",
+   "name": "Daily life",
    "children": [
     {
      "name": "gala",
@@ -1431,7 +1431,7 @@
    ]
   },
   {
-   "name": "prime",
+   "name": "Prime",
    "children": [
     {
      "name": "prime",

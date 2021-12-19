@@ -122,7 +122,7 @@ ul.forenames-list
 <template lang="pug">
 #time
     .title
-      h2 時系列で見る
+      h2 時代で見る
     .left-side
       form.search
         input(type="text" autocomplete="off" placeholder="Research..." v-model="searchQuery")
