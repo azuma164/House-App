@@ -80,12 +80,12 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
             .html("word: "+d.data.name +"<br>lang: "+languageHash[d.data.name][0]+"<br>meaning: "+languageHash[d.data.name][1]+"<br>building: "+nameHash[d.data.name])
         }
       })
-      .on("mousemove", function(e, d){
-        console.log(d)
-        tooltip
-            .style("top", "50px")
-            .style("left", "1450px")
-      })
+      // .on("mousemove", function(e, d){
+      //   console.log(d)
+      //   tooltip
+      //       .style("top", "px")
+      //       .style("left", "px")
+      // })
       .on("mouseout", function() {
         tooltip.style("visibility", "hidden");
         d3.select(this).attr("stroke", null); 

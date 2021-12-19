@@ -61,7 +61,7 @@ def coordinates(addresses, interval=2, progress=True):
 # print(dic)
 # print(dic_name)
 
-with codecs.open('./files/13_2020.csv', "r", 'shift_jis') as f:
+with codecs.open('./files/tokyo_points.csv', "r", 'utf-8') as f:
   reader = csv.reader(f)
   meaning = [row for row in reader]
 
