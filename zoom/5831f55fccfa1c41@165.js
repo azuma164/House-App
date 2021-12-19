@@ -123,12 +123,6 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
               )
         }
       })
-      // .on("mousemove", function(e, d){
-      //   console.log(d)
-      //   tooltip
-      //       .style("top", "px")
-      //       .style("left", "px")
-      // })
       .on("mouseout", function() {
         tooltip.style("visibility", "hidden");
         d3.select(this).attr("stroke", null); 
@@ -147,7 +141,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
       })
 
   const label = svg.append("g")
-      .style("font", "6px sans-serif")
+      .style("font", "5px sans-serif")
       .style("font-weight", "bold")
       .style("background-color", "green")
       .attr("pointer-events", "none")
@@ -181,7 +175,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
     const transition = svg.transition()
         .duration(event.altKey ? 7500 : 750)
         .tween("zoom", d => {
-          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 * 0.8]);
+          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
           return t => zoomTo(i(t));
         });
 
@@ -207,33 +201,10 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
   
     var lang_array = {}
   
-    var max_language_rate = 0;
-    let min_language_rate = 1;
-    // ここでスクレイピングでデータを取得
-  
-    // d3.csv('data/city_language.csv').then(function(data) {
-    //     data.forEach(function(d) {
-    //         var sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
-    //         let language_rate = Number(d[lang]) / sum_buildings // その言語がその区の建物数にしめる割合
-    //         lang_array[d['city']] = language_rate
-  
-    //         if (language_rate > max_language_rate) {
-    //             max_language_rate = language_rate
-    //         }
-    //         if (language_rate < min_language_rate) {
-    //             min_language_rate = language_rate
-    //         }
-    //     })
-    //     console.log(min_language_rate, max_language_rate)
-    //     showMap();
-    // })
     showMap(name);
   
     function showMap(name) {
-        // var color = d3.scaleLinear()
-        //     .domain([min_language_rate, max_language_rate])
-        //     .range([255, 0]);
-  
+
         d3.json("data/tokyo.topojson").then(function(data) {
             var tokyo = topojson.feature(data, data.objects.tokyo);
   
@@ -258,22 +229,6 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
                 .attr("stroke", "rgb(255,255,255)")
                 .attr("stroke-width", 0.5);
   
-            // pref
-            //     .on("mouseover", function(m, d) {
-            //         if (d.properties.area_ja == "都区部") {
-            //             tooltip
-            //                 .style("visibility", "visible")
-            //                 .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
-            //         }
-            //     })
-            //     .on("mousemove", function(d) {
-            //         tooltip
-            //             .style("top", d.clientY + "px")
-            //             .style("left", d.clientX + "px")
-            //     })
-            //     .on("mouseout", function(d) {
-            //         tooltip.style("visibility", "hidden");
-            //     })
             var pointHash = {}
             d3.csv("./files/alphabet_to_points.csv").then(function(data){
               data.forEach(function(d){
@@ -309,7 +264,7 @@ FileAttachment("flare-2.json").json()
   main.define("pack", ["d3","width","height"], function(d3,width,height){return(
 data => d3.pack()
     .size([width, height])
-    .padding(3)
+    .padding(4)
   (d3.hierarchy(data)
     .sum(d => d.value)
     .sort((a, b) => b.value - a.value))
