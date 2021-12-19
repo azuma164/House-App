@@ -60,6 +60,35 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
     })
   })
 
+  function language_code_to_katakana(code) {
+    switch (code) {
+        case "en":
+            return "英";
+            break;
+        case "fr":
+            return "フランス";
+            break;
+        case "it":
+            return "イタリア"
+        case "es":
+            return "スペイン"
+        case "de":
+            return "ドイツ"
+        case "gr":
+            return "ギリシャ"
+        case "el":
+            return "ギリシャ"
+        case "ru":
+            return "ロシア"
+        case "la":
+            return "ラテン"
+        case "pt":
+            return "ポルトガル"
+        case "ja":
+            return "日本"
+    }
+  }
+
   var tooltip = d3.select("body").append("div").attr("class", "tooltip-bubble")
 
   const node = svg.append("g")
@@ -75,9 +104,23 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
       .on('mouseover', function(e, d) {
         d3.select(this).attr("stroke", "#000");
         if (!d.children){
+          var lang = "不明"
+          if (language_code_to_katakana(languageHash[d.data.name][0]) != undefined){
+              lang = language_code_to_katakana(languageHash[d.data.name][0])+"語"
+          }
+          var build = "データなし"
+          if (nameHash[d.data.name].length){
+              build = nameHash[d.data.name].join(" | ")
+          }
           tooltip
             .style("visibility", "visible")
-            .html("word: "+d.data.name +"<br>lang: "+languageHash[d.data.name][0]+"<br>meaning: "+languageHash[d.data.name][1]+"<br>building: "+nameHash[d.data.name])
+            .html(
+              "<div class=tooltip-content>"
+              +"<div><span class=tooltip-name>"+d.data.name+"</span>"+"<span class=tooltip-meaning>・・・"+languageHash[d.data.name][1] + "</span>"
+              +"<p class=tooltip-lang>("+lang + ")</p></div>"
+              +"<p class=tooltip-building>"+build+"</p>"
+              +"</div>"
+              )
         }
       })
       // .on("mousemove", function(e, d){
@@ -105,6 +148,8 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
 
   const label = svg.append("g")
       .style("font", "6px sans-serif")
+      .style("font-weight", "bold")
+      .style("background-color", "green")
       .attr("pointer-events", "none")
       .attr("text-anchor", "middle")
     .selectAll("text")
