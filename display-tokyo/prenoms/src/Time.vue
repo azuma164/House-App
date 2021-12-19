@@ -6,8 +6,6 @@ html
   margin 0
   padding 0
 
-a:visited
-  color: #6e4cb9
 
 content
   display: flex

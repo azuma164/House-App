@@ -7,8 +7,6 @@ html
   margin 0
   padding 0
 
-a:visited
-  color: #6e4cb9
 
 body, #app, content
   height 100%
@@ -22,7 +20,6 @@ content
   margin-bottom: 10px
   margin-top: 10px
   h1
-    color: color-male
     font-family: "HelveticaLTStd-Bold"
     font-size: 35px
   h2
