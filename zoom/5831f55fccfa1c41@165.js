@@ -109,7 +109,7 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
               lang = language_code_to_katakana(languageHash[d.data.name][0])+"語"
           }
           var build = "データなし"
-          if (nameHash[d.data.name].length){
+          if (nameHash[d.data.name] != undefined){
               build = nameHash[d.data.name].join(" | ")
           }
           tooltip
@@ -160,6 +160,8 @@ main.variable(observer("chart")).define("chart", ["pack","data","d3","width","he
       .text(d => d.data.name);
 
   zoomTo([root.x, root.y, root.r * 2]);
+
+  label.attr("id", "bubble-text");
 
   function zoomTo(v) {
     const k = width / v[2]; //width / v[2]

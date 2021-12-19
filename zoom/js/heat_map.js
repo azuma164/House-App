@@ -28,6 +28,7 @@ function heat_map(lang) {
     // d3.select("body").append("h2").html(title).attr("class", "title_lang")
 
     var lang_array = {}
+    var lang_cnt = {}
 
     var max_language_rate = 0;
     let min_language_rate = 1;
@@ -38,6 +39,7 @@ function heat_map(lang) {
             var sum_buildings = Number(d['en']) + Number(d['fr']) + Number(d['sp']) + Number(d['ge']) + Number(d['it']) + Number(d['la']) + Number(d['gr']) + Number(d['ru']) + Number(d['po']) + Number(d['ja']);
             let language_rate = Number(d[lang]) / sum_buildings // その言語がその区の建物数にしめる割合
             lang_array[d['city']] = language_rate
+            lang_cnt[d['city']] = d[lang];
 
             if (language_rate > max_language_rate) {
                 max_language_rate = language_rate
@@ -47,6 +49,7 @@ function heat_map(lang) {
             }
         })
         console.log(min_language_rate, max_language_rate)
+        console.log(lang_cnt)
         showMap();
     })
 
@@ -89,7 +92,10 @@ function heat_map(lang) {
                     if (d.properties.area_ja == "都区部") {
                         tooltip
                             .style("visibility", "visible")
-                            .html(d.properties.ward_ja + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 1000) / 1000)
+                            .html(d.properties.ward_ja 
+                                + "<br>" + Math.round(lang_array[d.properties.ward_ja] * 100 * 100) / 100
+                                + "%<br>" + "("+lang_cnt[d.properties.ward_ja] + "件)"
+                            )
                     }
                 })
                 .on("mousemove", function(d) {
