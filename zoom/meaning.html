@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="js/topojson.js" charset="utf-8"></script>
+<title>意味で見る</title>
+<link rel="stylesheet" type="text/css" href="./css/inspector.css">
+
+<link rel="stylesheet" href="./css/header.css">
+<body>
+  <header>
+    <h1>
+        <a href="http://localhost:8887/home.html">建物<span>名</span>で眺める物件</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><a href="http://localhost:8887/language.html">言語</a></li>
+            <li><a href="http://localhost:8887/meaning.html">意味</a></li>
+            <li><a href="http://localhost:8003/time">時代</a></li>
+        </ul>
+    </nav>
+  </header>
+  <div>
+    <div id="word_cloud_text">
+        <h2 id="word_cloud_fixed_text">意味で見る</h2>
+    </div>
+  </div>
+  <div id="map"></div>
+<script type="module">
+
+import define from "./index.js";
+import {Runtime, Library, Inspector} from "./runtime.js";
+
+const runtime = new Runtime();
+const main = runtime.module(define, Inspector.into(document.body));
+
+</script>
+</body>

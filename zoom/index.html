@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<script src="js/topojson.js" charset="utf-8"></script>
-<title>意味で見る</title>
-<link rel="stylesheet" type="text/css" href="./css/inspector.css">
+<html lang="ja">
 
-<link rel="stylesheet" href="./css/header.css">
+<head>
+    <meta charset="utf-8">
+    <title>建物名で眺める物件</title>
+    <meta name="description" content="建物名で物件を眺めます。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+
 <body>
-  <header>
-    <h1>
-        <a href="http://localhost:8887/home.html">建物<span>名</span>で眺める物件</a>
-    </h1>
-    <nav class="pc-nav">
-        <ul>
-            <li><a href="http://localhost:8887/language.html">言語</a></li>
-            <li><a href="http://localhost:8887/">意味</a></li>
-            <li><a href="http://localhost:8003/time">時代</a></li>
-        </ul>
-    </nav>
-  </header>
-  <div>
-    <div id="word_cloud_text">
-        <h2 id="word_cloud_fixed_text">意味で見る</h2>
-    </div>
-  </div>
-  <div id="map"></div>
-<script type="module">
+    <main>
+        <div id="main_visual">
+            <img src="img/mainvisual.png" alt="">
+            <h1>建物名で眺める物件</h1>
+        </div>
 
-import define from "./index.js";
-import {Runtime, Library, Inspector} from "./runtime.js";
+        <div class="text">
+            <!-- <h1 class="site-title">はじめに</h1> -->
+            <p id="description">
+                メゾン、コーポ、ハイツ…。日本の建物にはそんな名前が多くつけられています。<br>そんな建物名の言語や意味を通して、物件や街を眺めてみませんか？<br>地域や年代、言語、意味の繋がりを発見できるかもしれません。
+            </p>
+        </div>
 
-const runtime = new Runtime();
-const main = runtime.module(define, Inspector.into(document.body));
+        <!-- ここにリンク設定 -->
+        <div class="text">
+            <a class="btn" href="http://localhost:8887/language.html">言語で見る</a>
+        </div>
+        <div class="text">
+            <a class="btn" href="http://localhost:8887/meaning.html">意味で見る</a>
+        </div>
+        <div class="text">
+            <a class="btn" href="http://localhost:8003/time">時代で見る</a>
+        </div>
+    </main>
 
-</script>
+    <footer id="footer">
+        <p>&copy; 2021 Team Hiyayako</p>
+    </footer>
 </body>
+
+</html>

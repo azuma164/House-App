@@ -151,15 +151,15 @@ ul.forenames-list
 <div id='app'>
   <header>
     <h1>
-        <a href="http://localhost:8887/home.html">建物<span>名</span>で眺める物件</a>
+        <a href="https://azuma164.github.io/house_zoom_app/">建物<span>名</span>で眺める物件</a>
     </h1>
     //- <a href="http://localhost:8887/language.html">遷移</a>
     <nav class="nav">
         <ul>
             //- <li><router-link to="/lang">言語</router-link></li>
-            <li><a href='http://localhost:8887/language.html'>言語</a></li>
+            <li><a href='https://azuma164.github.io/house_zoom_app/language'>言語</a></li>
             //- <li><router-link to="/bubble">意味</router-link></li>
-            <li><a href='http://localhost:8887/'>意味</a></li>
+            <li><a href='https://azuma164.github.io/house_zoom_app/meaning'>意味</a></li>
             <li><router-link to="/time">時代</router-link></li>
         </ul>
     </nav>
