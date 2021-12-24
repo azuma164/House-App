@@ -4,4 +4,4 @@
 - 詳しい内容は[こちらのスライド](https://docs.google.com/presentation/d/1D0X0Ym1QLPbpNdgIIWHR1lD8Q9XEntYB4WJB8-fG3BU/edit?usp=sharing)に書いてあります. 
 
 We visualized buildings in Tokyo by their name
-- available (here)[https://azuma164.github.io/house_zoom_app/]
+- available [here](https://azuma164.github.io/house_zoom_app/)
